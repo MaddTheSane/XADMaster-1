@@ -85,7 +85,7 @@ NSString *const XADExceptionReasonKey=@"XADExceptionReason";
         } else if([name isEqual:CSBzip2Exception]) {
             return [NSError errorWithDomain:XADErrorDomain code:XADErrorDecrunch userInfo:usrInfo];
         } else {
-            [NSError errorWithDomain:XADErrorDomain code:XADErrorUnknown userInfo:usrInfo];
+            return [NSError errorWithDomain:XADErrorDomain code:XADErrorUnknown userInfo:usrInfo];
         }
     }
     
