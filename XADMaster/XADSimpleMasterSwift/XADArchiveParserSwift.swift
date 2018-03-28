@@ -10,7 +10,15 @@ import Foundation
 import XADMaster.ArchiveParser
 import XADMaster.Exception
 
-extension XADError: Error {
+extension XADError: Error, CustomNSError {
+	public static var errorDomain: String {
+		return XADErrorDomain
+	}
+	
+	public var errorCode: Int {
+		return Int(rawValue)
+	}
+	
 	public var _domain: String {
 		return XADErrorDomain
 	}
@@ -20,9 +28,15 @@ extension XADError: Error {
 	}
 }
 extension XADPath {
+	@available(*, deprecated, renamed: "sanitizedPathString(with:)")
 	open func sanitizedPathString(withEncoding encoding: String.Encoding) -> String {
 		return __sanitizedPathString(withEncoding: encoding.rawValue)
 	}
+	
+	open func sanitizedPathString(with encoding: String.Encoding) -> String {
+		return __sanitizedPathString(withEncoding: encoding.rawValue)
+	}
+
 }
 
 extension XADError: CustomStringConvertible {
