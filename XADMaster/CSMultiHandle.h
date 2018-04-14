@@ -7,8 +7,8 @@
     NSArray<CSHandle*> *handles;
 }
 
-+(CSHandle *)handleWithHandleArray:(NSArray *)handlearray;
-+(CSHandle *)handleWithHandles:(CSHandle *)firsthandle,...;
++(CSHandle *)handleWithHandleArray:(NSArray<CSHandle*> *)handlearray;
++(CSHandle *)handleWithHandles:(CSHandle *)firsthandle,... NS_REQUIRES_NIL_TERMINATION;
 
 // Initializers
 -(instancetype)initWithHandles:(NSArray<CSHandle*> *)handlearray;

@@ -290,5 +290,5 @@ _XADNoPathSeparator
 # iVars needed by Xee
 _OBJC_IVAR_$_XADByteStreamHandle.eofenv
 _OBJC_IVAR_$_XADFileHandle.fh
-# _OBJC_IVAR_$_XADHandle.name
+_OBJC_IVAR_$_XADFileHandle.path
 _OBJC_IVAR_$_XADStreamHandle.input

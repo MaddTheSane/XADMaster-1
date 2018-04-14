@@ -9,7 +9,7 @@ extern NSString *const CCITTCodeException;
 	int column,colour,bitsleft;
 }
 
--(id)initWithInputBufferForHandle:(CSHandle *)handle columns:(int)cols white:(int)whitevalue;
+-(instancetype)initWithInputBufferForHandle:(CSHandle *)handle columns:(int)cols white:(int)whitevalue;
 
 -(void)resetByteStream;
 -(uint8_t)produceByteAtOffset:(off_t)pos;
