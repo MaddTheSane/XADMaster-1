@@ -218,7 +218,7 @@ preservePermissions:(BOOL)preservepermissions
 
 	NSURL *fileURL = [NSURL fileURLWithPath:path];
 	NSString *fileString = [fileURL.absoluteString retain];
-	const char *fileCStr = fileString.UTF8String;
+	const char *fileCStr = fileString.fileSystemRepresentation;
 
 	AEDesc filedesc;
 	AEInitializeDesc(&filedesc);
@@ -314,7 +314,7 @@ preservePermissions:(BOOL)preservepermissions
 
 +(void)writeCloneableMetadata:(id)metadata toPath:(NSString *)path
 {
-	[[NSURL fileURLWithPath:path] setResourceValue:metadata forKey:@"NSURLQuarantinePropertiesKey" error:NULL];
+	[[NSURL fileURLWithPath:path] setResourceValue:metadata forKey:NSURLQuarantinePropertiesKey error:NULL];
 }
 
 #endif
