@@ -25,6 +25,18 @@ struct ResourceOutputArguments
 
 @implementation XADPlatform
 
++(void)load
+{
+	if (@available(macOS 10.11, *)) {
+		[NSError setUserInfoValueProviderForDomain:XADErrorDomain provider:^id _Nullable(NSError * _Nonnull err, NSErrorUserInfoKey  _Nonnull userInfoKey) {
+			if ([userInfoKey isEqualToString:NSLocalizedDescriptionKey]) {
+				return [XADException localizedDescribeXADError:(XADError)err.code];
+			}
+			return nil;
+		}];
+	}
+}
+
 //
 // Archive entry extraction.
 //
