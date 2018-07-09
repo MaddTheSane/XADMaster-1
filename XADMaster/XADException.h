@@ -2,7 +2,15 @@
 
 #import "ClangAnalyser.h"
 
-typedef NS_ENUM(int, XADError) {
+extern NSErrorDomain __nonnull const XADErrorDomain;
+
+#if ((__cplusplus && __cplusplus >= 201103L && (__has_extension(cxx_strong_enums) || __has_feature(objc_fixed_enum))) || (!__cplusplus && __has_feature(objc_fixed_enum))) && __has_attribute(ns_error_domain)
+#define XAD_ERROR_ENUM(_domain, _name)     enum _name : int _name; enum __attribute__((ns_error_domain(_domain))) _name : int
+#else
+#define XAD_ERROR_ENUM(_domain, _name) NS_ENUM(int, _name)
+#endif
+
+typedef XAD_ERROR_ENUM(XADErrorDomain, XADError) {
 	XADErrorNone =			0x0000, /*!< no error */
 	XADErrorUnknown =		0x0001, /*!< unknown error */
 	XADErrorInput =			0x0002, /*!< input data buffers border exceeded */
@@ -35,7 +43,6 @@ typedef NS_ENUM(int, XADError) {
 };
 
 extern NSExceptionName __nonnull const XADExceptionName;
-extern NSErrorDomain __nonnull const XADErrorDomain;
 extern NSErrorUserInfoKey __nonnull const XADExceptionReasonKey;
 
 NS_SWIFT_UNAVAILABLE("Exceptions aren't supported by Swift")

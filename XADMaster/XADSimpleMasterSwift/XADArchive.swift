@@ -21,7 +21,7 @@ extension XADArchive {
 	
 	@nonobjc open func contents(ofEntry n: Int) throws -> Data {
 		guard let dat = __contents(ofEntry: n) else {
-			throw lastError
+			throw XADError(lastError)
 		}
 		return dat
 	}

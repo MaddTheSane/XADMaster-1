@@ -13,7 +13,7 @@ extension XADUnarchiver {
 	@nonobjc public func parseAndUnarchive() throws {
 		let error = __parseAndUnarchive()
 		if error != .none {
-			throw error
+			throw XADError(error)
 		}
 	}
 }

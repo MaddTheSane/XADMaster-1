@@ -10,23 +10,6 @@ import Foundation
 import XADMaster.ArchiveParser
 import XADMaster.Exception
 
-extension XADError: Error, CustomNSError {
-	public static var errorDomain: String {
-		return XADErrorDomain
-	}
-	
-	public var errorCode: Int {
-		return Int(rawValue)
-	}
-	
-	public var _domain: String {
-		return XADErrorDomain
-	}
-	
-	public var _code: Int {
-		return Int(rawValue)
-	}
-}
 extension XADPath {
 	@available(*, deprecated, renamed: "sanitizedPathString(with:)")
 	open func sanitizedPathString(withEncoding encoding: String.Encoding) -> String {
@@ -41,13 +24,13 @@ extension XADPath {
 
 extension XADError: CustomStringConvertible {
 	public var description: String {
-		if let errDesc = XADDescribeError(self) {
+		if let errDesc = XADDescribeError(code) {
 			return errDesc
 		}
 		if self == .none {
 			return "No Error"
 		}
-		return "Unknown error \(rawValue)"
+		return "Unknown error \(code.rawValue)"
 	}
 }
 
@@ -65,7 +48,7 @@ extension XADArchiveParser {
 			return true
 			
 		default:
-			throw err
+			throw XADError(err)
 		}
 	}
 	
@@ -79,7 +62,7 @@ extension XADArchiveParser {
 	@nonobjc open func testChecksumWithoutExceptions() throws {
 		if try testChecksum() == false {
 			// match the Objective-C method's behavior
-			throw XADError.checksum
+			throw XADError(.checksum)
 		}
 	}
 	
