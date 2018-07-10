@@ -52,7 +52,8 @@
 
 +(NSString *)stringForData:(NSData *)data encodingName:(NSString *)encoding
 {
-	return [self stringForBytes:data.bytes length:data.length encodingName:encoding];
+	NSStringEncoding enc = [self encodingForEncodingName:encoding];
+	return [[NSString alloc] initWithData:data encoding:enc];
 }
 
 +(NSString *)stringForBytes:(const void *)bytes length:(size_t)length encodingName:(NSString *)encoding
