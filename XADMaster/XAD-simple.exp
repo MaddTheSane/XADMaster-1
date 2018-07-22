@@ -194,6 +194,7 @@ _XADHumanReadableDictionary
 _XADHumanReadableList
 _XADIndentTextWithSpaces
 _XADDescribeError
+_XADLocalizedDescribeError
 _CSInputNextSymbolUsingCode
 _CSInputNextSymbolUsingCodeLE
 

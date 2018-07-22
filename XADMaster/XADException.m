@@ -61,7 +61,7 @@ NSString *const XADExceptionReasonKey=@"XADExceptionReason";
         NSString *name=[e name];
 		NSMutableDictionary *usrInfo = [NSMutableDictionary dictionaryWithDictionary:e.userInfo ?: @{}];
 		usrInfo[XADExceptionReasonKey] = e.reason;
-        if([name isEqual:XADExceptionName]) {
+        if ([name isEqual:XADExceptionName]) {
             XADError errVal = [[e userInfo][@"XADError"] intValue];
             return [NSError errorWithDomain:XADErrorDomain code:errVal userInfo:usrInfo];
         } else if([name isEqual:CSCannotOpenFileException]) {
@@ -143,4 +143,9 @@ NSString *const XADExceptionReasonKey=@"XADExceptionReason";
 extern NSString *XADDescribeError(XADError errnum)
 {
 	return [XADException describeXADError:errnum];
+}
+
+extern NSString *XADLocalizedDescribeError(XADError errnum)
+{
+    return [XADException localizedDescribeXADError:errnum];
 }
