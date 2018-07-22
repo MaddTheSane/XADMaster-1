@@ -225,16 +225,34 @@ static NSString *DottedNumber(uint64_t size);
 
 NSString *XADHumanReadableFileSize(uint64_t size)
 {
+#ifdef __APPLE__
+	NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
+	formatter.includesActualByteCount = YES;
+	formatter.adaptive = YES;
+	formatter.zeroPadsFractionDigits = YES;
+	NSString *strFormat = [formatter stringFromByteCount:size];
+	[formatter release];
+	return strFormat;
+#else
 	if(size<1000) return [NSString localizedStringWithFormat:
 	NSLocalizedString(@"%lld bytes",@"Format string for human-redable sizes <1000"),
 	size];
 	else return [NSString localizedStringWithFormat:
 	NSLocalizedString(@"%@ (%@ bytes)",@"Format string for human-readable sizes >=1000"),
 	XADShortHumanReadableFileSize(size),DottedNumber(size)];
+#endif
 }
 
 NSString *XADShortHumanReadableFileSize(uint64_t size)
 {
+#ifdef __APPLE__
+	NSByteCountFormatter *formatter = [[NSByteCountFormatter alloc] init];
+	formatter.adaptive = YES;
+	formatter.zeroPadsFractionDigits = YES;
+	NSString *strFormat = [formatter stringFromByteCount:size];
+	[formatter release];
+	return strFormat;
+#else
 	if(size<1000)
 	{
 		return [NSString stringWithFormat:
@@ -266,6 +284,7 @@ NSString *XADShortHumanReadableFileSize(uint64_t size)
 	else number=[NSString localizedStringWithFormat:@"%.0f",value];
 
 	return [NSString stringWithFormat:unitformat,number];
+#endif
 }
 
 static NSString *DottedNumber(uint64_t size)
