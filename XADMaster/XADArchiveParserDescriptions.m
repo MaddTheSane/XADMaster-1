@@ -220,8 +220,9 @@ static NSComparisonResult OrderKeys(id first,id second,void *context)
 @end
 
 
-
+#ifndef __APPLE__
 static NSString *DottedNumber(uint64_t size);
+#endif
 
 NSString *XADHumanReadableFileSize(uint64_t size)
 {
@@ -287,6 +288,7 @@ NSString *XADShortHumanReadableFileSize(uint64_t size)
 #endif
 }
 
+#ifndef __APPLE__
 static NSString *DottedNumber(uint64_t size)
 {
 	NSNumberFormatter *formatter=[[NSNumberFormatter new] autorelease];
@@ -294,6 +296,7 @@ static NSString *DottedNumber(uint64_t size)
 	formatter.numberStyle=NSNumberFormatterDecimalStyle;
 	return [formatter stringFromNumber:@(size)];
 }
+#endif
 
 NSString *XADHumanReadableBoolean(uint64_t boolean)
 {
