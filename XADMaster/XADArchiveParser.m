@@ -802,7 +802,25 @@ resourceFork:(XADResourceFork *)fork name:(NSString *)name propertiesToAdd:(NSMu
 	return XADErrorNone;
 }
 
-
+-(BOOL)testChecksumWithError:(NSError**)error
+{
+	@try {
+		if(![self testChecksum]) {
+			if (error) {
+				*error = [NSError errorWithDomain:XADErrorDomain code:XADErrorChecksum userInfo:nil];
+			}
+			return NO;
+		}
+		
+	} @catch(id exception) {
+		if (error) {
+			*error = [XADException parseExceptionReturningNSError:exception];
+		}
+		return NO;
+		
+	}
+	return YES;
+}
 
 
 // Internal functions

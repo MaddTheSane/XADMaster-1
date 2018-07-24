@@ -167,6 +167,7 @@ resourceFork:(nullable XADResourceFork *)fork name:(NSString *)name propertiesTo
 @property (NS_NONATOMIC_IOSONLY, readonly) BOOL hasChecksum;
 -(BOOL)testChecksum NS_SWIFT_UNAVAILABLE("throws exception");
 -(XADError)testChecksumWithoutExceptions NS_REFINED_FOR_SWIFT;
+-(BOOL)testChecksumWithError:(NSError**)error NS_REFINED_FOR_SWIFT;
 
 
 

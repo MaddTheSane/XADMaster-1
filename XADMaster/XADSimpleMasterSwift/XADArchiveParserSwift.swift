@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XADMaster.Path
 import XADMaster.ArchiveParser
 import XADMaster.Exception
 
@@ -27,7 +28,7 @@ extension XADError: CustomStringConvertible {
 		if let errDesc = XADDescribeError(code) {
 			return errDesc
 		}
-		if self == .none {
+		if self.code == .none {
 			return "No Error"
 		}
 		return "Unknown error \(code.rawValue)"
@@ -39,16 +40,11 @@ extension XADArchiveParser {
 	/// `false` otherwise.
 	/// Throws if there was a failure.
 	@nonobjc open func testChecksum() throws -> Bool {
-		let err = __testChecksumWithoutExceptions()
-		switch err {
-		case .checksum:
-			return false
-			
-		case .none:
+		do {
+			try __testChecksum()
 			return true
-			
-		default:
-			throw XADError(err)
+		} catch XADError.checksum {
+			return false
 		}
 	}
 	

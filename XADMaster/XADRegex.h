@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)beginMatchingData:(NSData *)data range:(NSRange)range;
 -(void)finishMatching;
 @property (NS_NONATOMIC_IOSONLY, readonly) BOOL matchNext;
--(NSString *)stringForMatch:(int)n;
+-(nullable NSString *)stringForMatch:(int)n;
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSArray<NSString*> *allMatches;
 
 -(BOOL)matchesString:(NSString *)string;

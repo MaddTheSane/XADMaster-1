@@ -34,7 +34,7 @@ extern NSString *const XADFinderFlags;
 @optional
 
 -(NSStringEncoding)archive:(XADArchive *)archive encodingForData:(NSData *)data guess:(NSStringEncoding)guess confidence:(float)confidence;
--(XADAction)archive:(XADArchive *)archive nameDecodingDidFailForEntry:(NSInteger)n data:(NSData *)data;
+-(XADAction)archive:(XADArchive *)archive nameDecodingDidFailForEntry:(NSInteger)n data:(nullable NSData *)data;
 
 -(BOOL)archiveExtractionShouldStop:(XADArchive *)archive;
 -(BOOL)archive:(XADArchive *)archive shouldCreateDirectory:(NSString *)directory;
