@@ -82,9 +82,10 @@
 
 -(void)_raiseError
 {
+	int ourErr = errno;
 	[[[[NSException alloc] initWithName:CSFileErrorException
-	reason:[NSString stringWithFormat:@"Error while attempting to read file \"%@\": %s.",[self name],strerror(errno)]
-	userInfo:[NSDictionary dictionaryWithObject:[NSNumber numberWithInt:errno] forKey:@"ErrNo"]] autorelease] raise];
+	reason:[NSString stringWithFormat:@"Error while attempting to read file \"%@\": %s.",[self name],strerror(ourErr)]
+	userInfo:[NSDictionary dictionaryWithObject:@(ourErr) forKey:@"ErrNo"]] autorelease] raise];
 }
 
 @end
