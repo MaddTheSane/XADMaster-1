@@ -62,10 +62,6 @@
 
 #include <dirent.h>
 
-#ifdef __BLOCKS__
-#include <dispatch/dispatch.h>
-#endif
-
 #if TARGET_OS_MAC && !TARGET_OS_OSX
 #include <MobileCoreServices/MobileCoreServices.h>
 #endif
@@ -145,14 +141,9 @@ static int maxheader=0;
 
 +(void)initialize
 {
-#ifdef __BLOCKS__
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-#else
 	static BOOL hasinitialized=NO;
 	if(hasinitialized) return;
 	hasinitialized=YES;
-#endif
 
 	parserclasses=[[NSMutableArray arrayWithObjects:
 					// Common formats
@@ -241,9 +232,6 @@ static int maxheader=0;
 		int header=[class requiredHeaderSize];
 		if(header>maxheader) maxheader=header;
 	}
-#ifdef __BLOCKS__
-	});
-#endif
 }
 
 +(void)load
