@@ -249,7 +249,7 @@ name:(NSString *)name;
 -(XADError)parseWithoutExceptions NS_REFINED_FOR_SWIFT;
 
 //! Exception-free wrapper for subclass method.<br>
-//! Will, in addition, pass \c XADBreakError on return if the delegate
+//! Will, in addition, pass \c XADBreakError and return \c NO if the delegate
 //! requested parsing to stop.
 -(BOOL)parseWithError:(NSError *__autoreleasing __nullable*__nullable)error;
 
