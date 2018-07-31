@@ -5,12 +5,14 @@ typedef CC_MD5_CTX XADMD5;
 #define XADMD5_Init CC_MD5_Init
 #define XADMD5_Update CC_MD5_Update
 #define XADMD5_Final CC_MD5_Final
+#define XADMD5_DIGEST_LENGTH CC_MD5_DIGEST_LENGTH
 #else
 #include "Crypto/md5.h"
 typedef MD5_CTX XADMD5;
 #define XADMD5_Init MD5_Init
 #define XADMD5_Update MD5_Update
 #define XADMD5_Final MD5_Final
+#define XADMD5_DIGEST_LENGTH MD5_DIGEST_LENGTH
 #endif
 
 @implementation XADMD5Handle
@@ -24,7 +26,7 @@ typedef MD5_CTX XADMD5;
 {
 	if((self=[super initWithParentHandle:handle length:length]))
 	{
-		digest=[correctdigest retain];
+		digest=[correctdigest copy];
 	}
 	return self;
 }
@@ -52,15 +54,15 @@ typedef MD5_CTX XADMD5;
 
 -(BOOL)isChecksumCorrect
 {
-	if(digest.length!=16) return NO;
+	if(digest.length!=XADMD5_DIGEST_LENGTH) return NO;
 
 	XADMD5 copy;
 	copy=context;
 
-	uint8_t buf[16];
+	uint8_t buf[XADMD5_DIGEST_LENGTH];
 	XADMD5_Final(buf,&copy);
 
-	return memcmp(digest.bytes,buf,16)==0;
+	return memcmp(digest.bytes,buf,XADMD5_DIGEST_LENGTH)==0;
 }
 
 -(double)estimatedProgress { return parent.estimatedProgress; }

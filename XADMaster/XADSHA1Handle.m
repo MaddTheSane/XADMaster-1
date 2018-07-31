@@ -5,12 +5,14 @@ typedef CC_SHA1_CTX XADSHA1;
 #define XADSHA1_Init CC_SHA1_Init
 #define XADSHA1_Update CC_SHA1_Update
 #define XADSHA1_Final CC_SHA1_Final
+#define XADSHA1_DIGEST_LENGTH CC_SHA1_DIGEST_LENGTH
 #else
 #include "Crypto/sha.h"
 typedef SHA_CTX XADSHA1;
 #define XADSHA1_Init SHA1_Init
 #define XADSHA1_Update SHA1_Update
 #define XADSHA1_Final SHA1_Final
+#define XADSHA1_DIGEST_LENGTH SHA1_DIGEST_LENGTH
 #endif
 
 @implementation XADSHA1Handle
@@ -24,7 +26,7 @@ typedef SHA_CTX XADSHA1;
 {
 	if((self=[super initWithParentHandle:handle length:length]))
 	{
-		digest=[correctdigest retain];
+		digest=[correctdigest copy];
 	}
 	return self;
 }
@@ -52,15 +54,15 @@ typedef SHA_CTX XADSHA1;
 
 -(BOOL)isChecksumCorrect
 {
-	if(digest.length!=20) return NO;
+	if(digest.length!=XADSHA1_DIGEST_LENGTH) return NO;
 
 	XADSHA1 copy;
 	copy=context;
 
-	uint8_t buf[20];
+	uint8_t buf[XADSHA1_DIGEST_LENGTH];
 	XADSHA1_Final(buf,&copy);
 
-	return memcmp(digest.bytes,buf,20)==0;
+	return memcmp(digest.bytes,buf,XADSHA1_DIGEST_LENGTH)==0;
 }
 
 -(double)estimatedProgress { return parent.estimatedProgress; }
