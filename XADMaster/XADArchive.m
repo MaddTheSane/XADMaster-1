@@ -506,7 +506,7 @@ NSString *const XADFinderFlags=@"XADFinderFlags";
 
 
 
--(XADError)lastError { return lasterror; }
+@synthesize lastError = lasterror;
 
 -(void)clearLastError { lasterror=XADErrorNone; }
 
