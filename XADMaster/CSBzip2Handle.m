@@ -6,6 +6,7 @@
 #endif
 
 NSString *const CSBzip2Exception=@"CSBzip2Exception";
+NSString *const CSBzip2ErrorDomain = @"de.dstoecker.xadmaster.bz2.error";
 
 @implementation CSBzip2Handle
 {
@@ -110,8 +111,9 @@ NSString *const CSBzip2Exception=@"CSBzip2Exception";
 
 -(void)_raiseBzip2:(int)error
 {
-	[NSException raise:CSBzip2Exception
-	format:@"Bzlib error while attepting to read from \"%@\": %d.",[self name],error];
+	NSString *raiseStr = [NSString stringWithFormat:@"Bzlib error while attepting to read from \"%@\": %d.", [self name], error];
+	[[[NSException alloc] initWithName:CSBzip2Exception reason:raiseStr
+							  userInfo:@{@"BZ2ErrorType": @(error)}] raise];
 }
 
 @end

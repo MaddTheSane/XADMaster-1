@@ -1,14 +1,20 @@
 #import "XADLZSSHandle.h"
 #import "XADPrefixCode.h"
 
-#define XADNormalDeflateVariant 0
-#define XADDeflate64DeflateVariant 1
-#define XADStuffItXDeflateVariant 2
-#define XADNSISDeflateVariant 3
+typedef NS_ENUM(int, XADDeflateVariant) {
+	XADDeflateVariantNormal = 0,
+	XADDeflateVariantDeflate64 = 1,
+	XADDeflateVariantStuffitX = 2,
+	XADDeflateVariantNSIS = 3
+};
+#define XADNormalDeflateVariant XADDeflateVariantNormal
+#define XADDeflate64DeflateVariant XADDeflateVariantDeflate64
+#define XADStuffItXDeflateVariant XADDeflateVariantStuffitX
+#define XADNSISDeflateVariant XADDeflateVariantNSIS
 
 @interface XADDeflateHandle:XADLZSSHandle
 {
-	int variant;
+	XADDeflateVariant variant;
 
 	XADPrefixCode *literalcode,*distancecode;
 	XADPrefixCode *fixedliteralcode,*fixeddistancecode;
@@ -19,7 +25,7 @@
 }
 
 -(instancetype)initWithHandle:(CSHandle *)handle length:(off_t)length;
--(instancetype)initWithHandle:(CSHandle *)handle length:(off_t)length variant:(int)deflatevariant;
+-(instancetype)initWithHandle:(CSHandle *)handle length:(off_t)length variant:(XADDeflateVariant)deflatevariant;
 
 -(void)setMetaTableOrder:(const int *)order;
 
