@@ -22,7 +22,7 @@ extern NSExceptionName const CSZlibException;
 
 // Implemented by this class
 -(void)resetStream;
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 // Internal methods
 -(void)_raiseZlib NS_SWIFT_UNAVAILABLE("Call throws");

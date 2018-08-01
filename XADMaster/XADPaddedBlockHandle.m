@@ -57,17 +57,17 @@ static inline off_t LogicalToPhysical(XADPaddedBlockHandle *self,off_t logical)
 	[parent seekToEndOfFile];
 }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	if(!num) return 0;
 
 	uint8_t *bytebuffer=(uint8_t *)buffer;
 	off_t pos=parent.offsetInFile;
-	int total=0;
+	NSInteger total=0;
 
 	while(total<num)
 	{
-		int offset=(pos-startoffset)%physicalsize;
+		NSInteger offset=(pos-startoffset)%physicalsize;
 		if(offset>=logicalsize)
 		{
 			pos+=physicalsize-offset;
@@ -75,10 +75,10 @@ static inline off_t LogicalToPhysical(XADPaddedBlockHandle *self,off_t logical)
 			[parent seekToFileOffset:pos];
 		}
 
-		int numbytes=logicalsize-offset;
+		NSInteger numbytes=logicalsize-offset;
 		if(numbytes>num-total) numbytes=num-total;
 
-		int actual=[parent readAtMost:numbytes toBuffer:&bytebuffer[total]];
+		NSInteger actual=[parent readAtMost:numbytes toBuffer:&bytebuffer[total]];
 		if(actual==0) return total;
 
 		total+=actual;

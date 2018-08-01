@@ -37,10 +37,10 @@
 
 -(void)seekToEndOfFile { [parent seekToEndOfFile]; }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	off_t pos=parent.offsetInFile;
-	int actual=[parent readAtMost:num toBuffer:buffer];
+	NSInteger actual=[parent readAtMost:num toBuffer:buffer];
 
 	if(passwordlength)
 	{

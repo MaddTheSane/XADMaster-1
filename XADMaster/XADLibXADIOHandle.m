@@ -58,13 +58,13 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io);
 	[super seekToEndOfFile];
 }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	if(!unpacked) [self runUnpacker];
 	return [super readAtMost:num toBuffer:buffer];
 }
 
--(void)writeBytes:(int)num fromBuffer:(const void *)buffer
+-(void)writeBytes:(NSInteger)num fromBuffer:(const void *)buffer
 {
 	[self _raiseNotImplemented:_cmd];
 }
@@ -81,25 +81,25 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io);
 	return [super remainingFileContents];
 }
 
--(NSData *)readDataOfLength:(int)length;
+-(NSData *)readDataOfLength:(NSInteger)length;
 {
 	if(!unpacked) [self runUnpacker];
 	return [super readDataOfLength:length];
 }
 
--(NSData *)readDataOfLengthAtMost:(int)length;
+-(NSData *)readDataOfLengthAtMost:(NSInteger)length;
 {
 	if(!unpacked) [self runUnpacker];
 	return [super readDataOfLengthAtMost:length];
 }
 
--(NSData *)copyDataOfLength:(int)length;
+-(NSData *)copyDataOfLength:(NSInteger)length;
 {
 	if(!unpacked) [self runUnpacker];
 	return [super copyDataOfLength:length];
 }
 
--(NSData *)copyDataOfLengthAtMost:(int)length;
+-(NSData *)copyDataOfLengthAtMost:(NSInteger)length;
 {
 	if(!unpacked) [self runUnpacker];
 	return [super copyDataOfLengthAtMost:length];
@@ -196,7 +196,7 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io)
 				i = io->xio_InSize;
 
 				@try {
-					int actual=[io->inputhandle readAtMost:(int)i toBuffer:io->xio_InBuffer];
+					NSInteger actual=[io->inputhandle readAtMost:(NSInteger)i toBuffer:io->xio_InBuffer];
 					if(!actual)
 					{
 						io->xio_Flags|=XADIOF_ERROR;

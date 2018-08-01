@@ -1,13 +1,13 @@
 #import "CSHandle.h"
 
-typedef int (*CSByteMatchingFunctionPointer)(const uint8_t *bytes,int available,off_t offset,void *state);
+typedef int (*CSByteMatchingFunctionPointer)(const uint8_t *bytes,NSInteger available,off_t offset,void *state);
 
 @interface CSHandle (Scanning)
 
--(BOOL)scanForByteString:(const void *)bytes length:(int)length;
+-(BOOL)scanForByteString:(const void *)bytes length:(NSInteger)length;
 -(int)scanUsingMatchingFunction:(CSByteMatchingFunctionPointer)function
-maximumLength:(int)maximumlength;
+maximumLength:(NSInteger)maximumlength;
 -(int)scanUsingMatchingFunction:(CSByteMatchingFunctionPointer)function
-maximumLength:(int)maximumlength context:(void *)contextptr;
+maximumLength:(NSInteger)maximumlength context:(void *)contextptr;
 
 @end

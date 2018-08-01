@@ -552,7 +552,7 @@ deferDirectories:(BOOL)defer
 	selector:@selector(_outputToHandle:bytes:length:) argument:handle];
 }
 
--(XADError)_outputToHandle:(CSHandle *)handle bytes:(uint8_t *)bytes length:(int)length
+-(XADError)_outputToHandle:(CSHandle *)handle bytes:(uint8_t *)bytes length:(NSInteger)length
 {
 	// TODO: combine the exception parsing for input and output
 	@try { [handle writeBytes:length fromBuffer:bytes]; }
@@ -563,7 +563,7 @@ deferDirectories:(BOOL)defer
 -(XADError)runExtractorWithDictionary:(NSDictionary *)dict
 outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 {
-	XADError (*outputfunc)(id,SEL,id,uint8_t *,int);
+	XADError (*outputfunc)(id,SEL,id,uint8_t *,NSInteger);
 	outputfunc=(void *)[target methodForSelector:selector];
 
 	uint8_t *buf=NULL;
@@ -603,7 +603,7 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 
 			// Read some data, and send it to the output function.
 			// Stop if no more data was available.
-			int actual=[srchandle readAtMost:bufsize toBuffer:buf];
+			NSInteger actual=[srchandle readAtMost:bufsize toBuffer:buf];
 			if(actual)
 			{
 				XADError error=outputfunc(target,selector,argument,buf,actual);

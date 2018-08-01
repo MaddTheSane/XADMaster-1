@@ -21,6 +21,6 @@
 -(instancetype)initWithHandle:(CSHandle *)handle length:(off_t)length password:(NSData *)passdata keyLength:(int)keylength;
 
 -(void)resetStream;
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 @end

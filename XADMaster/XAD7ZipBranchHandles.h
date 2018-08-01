@@ -4,7 +4,7 @@
 {
 	off_t startoffs;
 	uint8_t inbuffer[4096];
-	int leftoverstart,leftoverlength;
+	NSInteger leftoverstart,leftoverlength;
 	uint32_t baseoffset;
 }
 
@@ -14,9 +14,9 @@
 -(instancetype)initWithHandle:(CSHandle *)handle length:(off_t)length propertyData:(NSData *)propertydata;
 
 -(void)resetBlockStream;
--(int)produceBlockAtOffset:(off_t)pos;
+-(NSInteger)produceBlockAtOffset:(off_t)pos;
 
--(int)decodeBlock:(uint8_t *)block length:(int)length offset:(off_t)pos;
+-(NSInteger)decodeBlock:(uint8_t *)block length:(NSInteger)length offset:(off_t)pos;
 
 @end
 

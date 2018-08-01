@@ -110,7 +110,7 @@ typedef SHA_CTX XADSHA1;
 	memcpy(block,iv,sizeof(iv));
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	uint8_t *bytebuffer=buffer;
 	int bufferpos=streampos&15;
@@ -126,13 +126,13 @@ typedef SHA_CTX XADSHA1;
 	memcpy(&bytebuffer[total],&blockbuffer[bufferpos],bufferlength);
 	total+=bufferlength;
 
-	int remaining=num-total;
-	int remainingblocklength=remaining&~15;
+	NSInteger remaining=num-total;
+	NSInteger remainingblocklength=remaining&~15;
 
 	if(remainingblocklength)
 	{
-		int actual=[parent readAtMost:remainingblocklength toBuffer:&bytebuffer[total]];
-		int actualblocklength=actual&~15;
+		NSInteger actual=[parent readAtMost:remainingblocklength toBuffer:&bytebuffer[total]];
+		NSInteger actualblocklength=actual&~15;
 		aes_cbc_decrypt(&bytebuffer[total],&bytebuffer[total],actualblocklength,block,&aes);
 		total+=actualblocklength;
 
@@ -143,10 +143,10 @@ typedef SHA_CTX XADSHA1;
 		}
 	}
 
-	int endlength=num-total;
+	NSInteger endlength=num-total;
 	if(endlength)
 	{
-		int actual=[parent readAtMost:16 toBuffer:blockbuffer];
+		NSInteger actual=[parent readAtMost:16 toBuffer:blockbuffer];
 		if(actual!=16)
 		{
 			[self endStream];

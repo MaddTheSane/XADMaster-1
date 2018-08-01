@@ -31,6 +31,6 @@
 -(void)setSeekBackAtEOF:(BOOL)seekateof;
 
 -(void)resetStream;
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 @end

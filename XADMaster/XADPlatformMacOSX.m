@@ -85,7 +85,7 @@ unarchiver:(XADUnarchiver *)unarchiver toPath:(NSString *)destpath
 	return error;
 }
 
-+(XADError)outputToResourceFork:(NSValue *)pointerval bytes:(uint8_t *)bytes length:(int)length
++(XADError)outputToResourceFork:(NSValue *)pointerval bytes:(uint8_t *)bytes length:(NSInteger)length
 {
 	struct ResourceOutputArguments *args=pointerval.pointerValue;
 	if(fsetxattr(args->fd,XATTR_RESOURCEFORK_NAME,bytes,length,

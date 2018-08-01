@@ -238,7 +238,7 @@ name:(NSString *)name propertiesToAdd:(NSMutableDictionary *)props
 
 		case DataState:
 		{
-			int actual=[currhandle readAtMost:num-bytesread toBuffer:&bytebuf[bytesread]];
+			NSInteger actual=[currhandle readAtMost:num-bytesread toBuffer:&bytebuf[bytesread]];
 			crc=XADCalculateCRC(crc,&bytebuf[bytesread],actual,XADCRCTable_edb88320);
 
 			bytesread+=actual;

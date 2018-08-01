@@ -201,17 +201,17 @@ NSString *const CSFileErrorException=@"CSFileErrorException";
 	if(ungetc(byte,fh)==EOF) [self _raiseError];
 }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	if(num==0) return 0;
 	if(multilock) { [multilock lock]; fseeko(fh,pos,SEEK_SET); }
-	int n=(int)fread(buffer,1,num,fh);
+	NSInteger n=(NSInteger)fread(buffer,1,num,fh);
 	if(n<=0&&!feof(fh)) [self _raiseError];
 	if(multilock) { pos=ftello(fh); [multilock unlock]; }
 	return n;
 }
 
--(void)writeBytes:(int)num fromBuffer:(const void *)buffer
+-(void)writeBytes:(NSInteger)num fromBuffer:(const void *)buffer
 {
 	if(multilock) { [multilock lock]; fseeko(fh,pos,SEEK_SET); }
 	if(fwrite(buffer,1,num,fh)!=num) [self _raiseError];

@@ -1,7 +1,5 @@
 #import "CSBlockStreamHandle.h"
 
-static inline int imin(int a,int b) { return a<b?a:b; }
-
 @implementation CSBlockStreamHandle
 
 /*-(id)initWithName:(NSString *)descname length:(off_t)length
@@ -15,7 +13,7 @@ static inline int imin(int a,int b) { return a<b?a:b; }
 	return self;
 }*/
 
--(id)initWithInputBufferForHandle:(CSHandle *)handle length:(off_t)length bufferSize:(int)buffersize;
+-(id)initWithInputBufferForHandle:(CSHandle *)handle length:(off_t)length bufferSize:(NSInteger)buffersize;
 {
 	if(self=[super initWithInputBufferForHandle:handle length:length bufferSize:buffersize])
 	{
@@ -62,7 +60,7 @@ static inline int imin(int a,int b) { return a<b?a:b; }
 	[self resetBlockStream];
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	int n=0;
 
@@ -70,8 +68,8 @@ static inline int imin(int a,int b) { return a<b?a:b; }
 	{
 		if(!_currblock) return 0;
 
-		int offs=(int)(streampos-_blockstartpos);
-		int count=_blocklength-offs;
+		NSInteger offs=(NSInteger)(streampos-_blockstartpos);
+		NSInteger count=_blocklength-offs;
 		if(count>num) count=num;
 		memcpy(buffer,_currblock+offs,count);
 		n+=count;
@@ -82,7 +80,7 @@ static inline int imin(int a,int b) { return a<b?a:b; }
 		[self _readNextBlock];
 		if(endofstream) break;
 
-		int count=imin(_blocklength,num-n);
+		NSInteger count=MIN(_blocklength,num-n);
 		memcpy(buffer+n,_currblock,count);
 		n+=count;
 	}
@@ -101,7 +99,7 @@ static inline int imin(int a,int b) { return a<b?a:b; }
 
 -(void)resetBlockStream { }
 
--(int)produceBlockAtOffset:(off_t)pos { return 0; }
+-(NSInteger)produceBlockAtOffset:(off_t)pos { return 0; }
 
 
 

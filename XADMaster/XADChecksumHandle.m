@@ -18,12 +18,12 @@
 	checksum=0;
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
-	int actual=[parent readAtMost:num toBuffer:buffer];
+	NSInteger actual=[parent readAtMost:num toBuffer:buffer];
 
 	uint8_t *bytes=buffer;
-	for(int i=0;i<actual;i++) checksum+=bytes[i];
+	for(NSInteger i=0;i<actual;i++) checksum+=bytes[i];
 
 	return actual;
 }

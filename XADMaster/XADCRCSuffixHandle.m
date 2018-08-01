@@ -48,9 +48,9 @@ CRCSize:(int)crcbytes bigEndianCRC:(BOOL)bigendian CRCTable:(const uint32_t *)cr
 	crc=initcrc;
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
-	int actual=[parent readAtMost:num toBuffer:buffer];
+	NSInteger actual=[parent readAtMost:num toBuffer:buffer];
 	crc=XADCalculateCRC(crc,buffer,actual,table);
 	return actual;
 }

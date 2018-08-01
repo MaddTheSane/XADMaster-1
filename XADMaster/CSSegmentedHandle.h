@@ -29,7 +29,7 @@ extern NSExceptionName const CSSizeOfSegmentUnknownException;
 
 -(void)seekToFileOffset:(off_t)offs;
 -(void)seekToEndOfFile;
--(int)readAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 @property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *name;
 

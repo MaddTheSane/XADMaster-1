@@ -8,7 +8,7 @@ typedef struct CSInputBuffer
 	BOOL eof;
 
 	uint8_t *buffer;
-	unsigned int bufsize,bufbytes,currbyte;
+	NSUInteger bufsize,bufbytes,currbyte;
 
 	uint32_t bits;
 	unsigned int numbits;
@@ -18,12 +18,12 @@ typedef struct CSInputBuffer
 
 // Allocation and management
 
-CSInputBuffer *CSInputBufferAlloc(CSHandle *parent,int size);
-CSInputBuffer *CSInputBufferAllocWithBuffer(const uint8_t *buffer,int length,off_t startoffs);
+CSInputBuffer *CSInputBufferAlloc(CSHandle *parent,NSInteger size);
+CSInputBuffer *CSInputBufferAllocWithBuffer(const uint8_t *buffer,NSInteger length,off_t startoffs);
 CSInputBuffer *CSInputBufferAllocEmpty(void);
 void CSInputBufferFree(CSInputBuffer *self);
 
-void CSInputSetMemoryBuffer(CSInputBuffer *self,uint8_t *buffer,int length,off_t startoffs);
+void CSInputSetMemoryBuffer(CSInputBuffer *self,uint8_t *buffer,NSInteger length,off_t startoffs);
 
 static inline CSHandle *CSInputHandle(CSInputBuffer *self)
 {
@@ -61,7 +61,7 @@ static inline void _CSInputBufferRaiseEOF(CSInputBuffer *self)
 	format:@"Attempted to read past the end of memory buffer."];
 }
 
-static inline int _CSInputBytesLeftInBuffer(CSInputBuffer *self)
+static inline NSInteger _CSInputBytesLeftInBuffer(CSInputBuffer *self)
 {
 	return self->bufbytes-self->currbyte;
 }
@@ -71,17 +71,17 @@ static inline void _CSInputCheckAndFillBuffer(CSInputBuffer *self)
 	if(!self->eof&&_CSInputBytesLeftInBuffer(self)<=CSInputBufferLookAhead) _CSInputFillBuffer(self);
 }
 
-static inline void CSInputSkipBytes(CSInputBuffer *self,int num)
+static inline void CSInputSkipBytes(CSInputBuffer *self,NSInteger num)
 {
 	self->currbyte+=num;
 }
 
-static inline uint32_t _CSInputPeekByteWithoutEOF(CSInputBuffer *self,int offs)
+static inline uint32_t _CSInputPeekByteWithoutEOF(CSInputBuffer *self,NSInteger offs)
 {
 	return self->buffer[self->currbyte+offs];
 }
 
-static inline int CSInputPeekByte(CSInputBuffer *self,int offs)
+static inline int CSInputPeekByte(CSInputBuffer *self,NSInteger offs)
 {
 	_CSInputCheckAndFillBuffer(self);
 	if(offs>=_CSInputBytesLeftInBuffer(self)) _CSInputBufferRaiseEOF(self);
@@ -122,39 +122,39 @@ BOOL CSInputOnByteBoundary(CSInputBuffer *self);
 void CSInputSkipToByteBoundary(CSInputBuffer *self);
 void CSInputSkipTo16BitBoundary(CSInputBuffer *self);
 
-static inline unsigned int CSInputBitsLeftInBuffer(CSInputBuffer *self)
+static inline NSUInteger CSInputBitsLeftInBuffer(CSInputBuffer *self)
 {
 	_CSInputCheckAndFillBuffer(self);
 	return _CSInputBytesLeftInBuffer(self)*8+(self->numbits&7);
 }
 
-static inline void _CSInputCheckAndFillBits(CSInputBuffer *self,int numbits)
+static inline void _CSInputCheckAndFillBits(CSInputBuffer *self,NSInteger numbits)
 {
 	if(numbits>self->numbits) _CSInputFillBits(self);
 }
 
-static inline void _CSInputCheckAndFillBitsLE(CSInputBuffer *self,int numbits)
+static inline void _CSInputCheckAndFillBitsLE(CSInputBuffer *self,NSInteger numbits)
 {
 	if(numbits>self->numbits) _CSInputFillBitsLE(self);
 }
 
-static inline unsigned int CSInputPeekBitString(CSInputBuffer *self,int numbits)
+static inline unsigned int CSInputPeekBitString(CSInputBuffer *self,NSInteger numbits)
 {
 	if(numbits==0) return 0;
 	_CSInputCheckAndFillBits(self,numbits);
 	return self->bits>>(32-numbits);
 }
 
-static inline unsigned int CSInputPeekBitStringLE(CSInputBuffer *self,int numbits)
+static inline unsigned int CSInputPeekBitStringLE(CSInputBuffer *self,NSInteger numbits)
 {
 	if(numbits==0) return 0;
 	_CSInputCheckAndFillBitsLE(self,numbits);
 	return self->bits&((1<<numbits)-1);
 }
 
-static inline void CSInputSkipPeekedBits(CSInputBuffer *self,int numbits)
+static inline void CSInputSkipPeekedBits(CSInputBuffer *self,NSInteger numbits)
 {
-	int numbytes=(numbits-(self->numbits&7)+7)>>3;
+	NSInteger numbytes=(numbits-(self->numbits&7)+7)>>3;
 	CSInputSkipBytes(self,numbytes);
 
 	if(_CSInputBytesLeftInBuffer(self)<0) _CSInputBufferRaiseEOF(self);
@@ -163,9 +163,9 @@ static inline void CSInputSkipPeekedBits(CSInputBuffer *self,int numbits)
 	self->numbits-=numbits;
 }
 
-static inline void CSInputSkipPeekedBitsLE(CSInputBuffer *self,int numbits)
+static inline void CSInputSkipPeekedBitsLE(CSInputBuffer *self,NSInteger numbits)
 {
-	int numbytes=(numbits-(self->numbits&7)+7)>>3;
+	NSInteger numbytes=(numbits-(self->numbits&7)+7)>>3;
 	CSInputSkipBytes(self,numbytes);
 
 	if(_CSInputBytesLeftInBuffer(self)<0) _CSInputBufferRaiseEOF(self);

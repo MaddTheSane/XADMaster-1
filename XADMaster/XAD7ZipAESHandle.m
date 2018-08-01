@@ -152,12 +152,12 @@ typedef SHA_CTX XADSHA256;
 
 -(int)produceBlockAtOffset:(off_t)pos
 {
-	int actual=[parent readAtMost:sizeof(buffer) toBuffer:buffer];
+	NSInteger actual=[parent readAtMost:sizeof(buffer) toBuffer:buffer];
 	if(actual==0) return -1;
 
 	aes_cbc_decrypt(buffer,buffer,actual&~15,block,&aes);
 
-	return actual;
+	return (int)actual;
 }
 
 @end

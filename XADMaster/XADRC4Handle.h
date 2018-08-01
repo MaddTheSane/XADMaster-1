@@ -14,7 +14,7 @@
 -(instancetype)initWithHandle:(CSHandle *)handle key:(NSData *)keydata NS_DESIGNATED_INITIALIZER;
 
 -(void)resetStream;
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 @end
 
@@ -31,8 +31,8 @@
 
 -(NSData *)encryptedData:(NSData *)data;
 
--(void)encryptBytes:(unsigned char *)bytes length:(int)length;
--(void)skipBytes:(int)length;
+-(void)encryptBytes:(unsigned char *)bytes length:(NSInteger)length;
+-(void)skipBytes:(NSInteger)length;
 
 @end
 

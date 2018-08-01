@@ -437,7 +437,7 @@ isLastEntry:NO];
 
 
 
-static int MatchZipDataDescriptor(const uint8_t *bytes,int available,off_t offset,void *state)
+static int MatchZipDataDescriptor(const uint8_t *bytes,NSInteger available,off_t offset,void *state)
 {
 	if(available<12) return 0;
 
@@ -466,7 +466,7 @@ static int MatchZipDataDescriptor(const uint8_t *bytes,int available,off_t offse
 	return 0;
 }
 
-static int MatchZip64DataDescriptor(const uint8_t *bytes,int available,off_t offset,void *state)
+static int MatchZip64DataDescriptor(const uint8_t *bytes,NSInteger available,off_t offset,void *state)
 {
 	if(available<20) return 0;
 
@@ -533,7 +533,7 @@ compressedSizePointer:(off_t *)compsizeptr CRCPointer:(uint32_t *)crcptr
 
 
 
-static int MatchZipEntry(const uint8_t *bytes,int available,off_t offset,void *state)
+static int MatchZipEntry(const uint8_t *bytes,NSInteger available,off_t offset,void *state)
 {
 	if(available<6) return NO;
 

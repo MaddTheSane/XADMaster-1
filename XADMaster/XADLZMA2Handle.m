@@ -48,7 +48,7 @@ static ISzAlloc allocator={Alloc,Free};
 	bufbytes=bufoffs=0;
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	int total=0;
 
@@ -66,7 +66,7 @@ static ISzAlloc allocator={Alloc,Free};
 		if(res!=SZ_OK) [XADException raiseDecrunchException];
 		if(status==LZMA_STATUS_NEEDS_MORE_INPUT)
 		{
-			bufbytes=[parent readAtMost:sizeof(inbuffer) toBuffer:inbuffer];
+			bufbytes=(int)[parent readAtMost:sizeof(inbuffer) toBuffer:inbuffer];
 			if(!bufbytes) [parent _raiseEOF];
 			bufoffs=0;
 		}

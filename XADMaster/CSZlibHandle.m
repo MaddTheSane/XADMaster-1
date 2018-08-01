@@ -103,10 +103,10 @@ NSString *const CSZlibException=@"CSZlibException";
 	inflateReset(&zs);
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	zs.next_out=buffer;
-	zs.avail_out=num;
+	zs.avail_out=(UInt)(MIN(num, UINT_MAX));
 
 	for(;;)
 	{
@@ -123,7 +123,7 @@ NSString *const CSZlibException=@"CSZlibException";
 
 		if(!zs.avail_in)
 		{
-			zs.avail_in=[parent readAtMost:sizeof(inbuffer) toBuffer:inbuffer];
+			zs.avail_in=(UInt)[parent readAtMost:sizeof(inbuffer) toBuffer:inbuffer];
 			zs.next_in=(void *)inbuffer;
 
 			if(!zs.avail_in)

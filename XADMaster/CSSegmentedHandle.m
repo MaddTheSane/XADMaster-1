@@ -113,11 +113,11 @@ NSString *const CSSizeOfSegmentUnknownException=@"CSSizeOfSegmentUnknownExceptio
 	[currhandle seekToEndOfFile];
 }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	[self _open];
 
-	int total=0;
+	NSInteger total=0;
 	for(;;)
 	{
 		off_t actual=[currhandle readAtMost:num-total toBuffer:((char *)buffer)+total];

@@ -72,8 +72,8 @@
 -(void)seekToFileOffset:(off_t)offs { [parent seekToFileOffset:offs]; }
 -(void)seekToEndOfFile { [parent seekToEndOfFile]; }
 -(void)pushBackByte:(int)byte { [parent pushBackByte:byte]; }
--(int)readAtMost:(int)num toBuffer:(void *)buffer { return [parent readAtMost:num toBuffer:buffer]; }
--(void)writeBytes:(int)num fromBuffer:(const void *)buffer { [parent writeBytes:num fromBuffer:buffer]; }
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer { return [parent readAtMost:num toBuffer:buffer]; }
+-(void)writeBytes:(NSInteger)num fromBuffer:(const void *)buffer { [parent writeBytes:num fromBuffer:buffer]; }
 
 -(BOOL)hasChecksum { return checksum.hasChecksum; }
 -(BOOL)isChecksumCorrect { return checksum.checksumCorrect; }

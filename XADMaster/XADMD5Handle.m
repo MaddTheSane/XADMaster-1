@@ -43,9 +43,9 @@ typedef MD5_CTX XADMD5;
 	[parent seekToFileOffset:0];
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
-	int actual=[parent readAtMost:num toBuffer:buffer];
+	NSInteger actual=[parent readAtMost:num toBuffer:buffer];
 	XADMD5_Update(&context,buffer,actual);
 	return actual;
 }

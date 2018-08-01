@@ -3,10 +3,10 @@
 typedef struct ByteString
 {
 	const uint8_t *bytes;
-	int length;
+	NSInteger length;
 } ByteString;
 
-static int MatchByteString(const uint8_t *bytes,int available,off_t offset,void *context)
+static int MatchByteString(const uint8_t *bytes,NSInteger available,off_t offset,void *context)
 {
 	ByteString *bs=context;
 	if(available<bs->length) return NO;
@@ -16,25 +16,25 @@ static int MatchByteString(const uint8_t *bytes,int available,off_t offset,void 
 
 @implementation CSHandle (Scanning)
 
--(BOOL)scanForByteString:(const void *)bytes length:(int)length
+-(BOOL)scanForByteString:(const void *)bytes length:(NSInteger)length
 {
 	ByteString bs={ .bytes=bytes, .length=length };
 	return [self scanUsingMatchingFunction:MatchByteString maximumLength:length context:&bs];
 }
 
 -(int)scanUsingMatchingFunction:(CSByteMatchingFunctionPointer)function
-maximumLength:(int)maximumlength
+maximumLength:(NSInteger)maximumlength
 {
 	return [self scanUsingMatchingFunction:function maximumLength:maximumlength context:NULL];
 }
 
 -(int)scanUsingMatchingFunction:(CSByteMatchingFunctionPointer)function
-maximumLength:(int)maximumlength context:(void *)contextptr
+maximumLength:(NSInteger)maximumlength context:(void *)contextptr
 {
 	uint8_t buffer[65536];
 
 	off_t pos=0;
-	int actual=[self readAtMost:sizeof(buffer) toBuffer:buffer];
+	NSInteger actual=[self readAtMost:sizeof(buffer) toBuffer:buffer];
 
 	while(actual>=maximumlength)
 	{

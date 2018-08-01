@@ -70,7 +70,7 @@
 	}*/
 }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	off_t curr=parent.offsetInFile;
 	if(curr+num>end) num=(int)(end-curr);

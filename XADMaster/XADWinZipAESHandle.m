@@ -88,9 +88,9 @@ static void DeriveKey(NSData *password,NSData *salt,int iterations,uint8_t *keyb
 }
 
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
-	int actual=[parent readAtMost:num toBuffer:buffer];
+	NSInteger actual=[parent readAtMost:num toBuffer:buffer];
 
 	HMAC_SHA1_UpdateMessage(&hmac,buffer,actual);
 

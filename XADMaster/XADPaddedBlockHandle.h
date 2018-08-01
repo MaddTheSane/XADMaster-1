@@ -16,6 +16,6 @@ logicalBlockSize:(int)logical physicalBlockSize:(int)physical;
 
 -(void)seekToFileOffset:(off_t)offs;
 -(void)seekToEndOfFile;
--(int)readAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 @end

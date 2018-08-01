@@ -76,7 +76,7 @@
 
 //-(void)pushBackByte:(int)byte {}
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	if(!num) return 0;
 
@@ -88,7 +88,7 @@
 	return num;
 }
 
--(void)writeBytes:(int)num fromBuffer:(const void *)buffer
+-(void)writeBytes:(NSInteger)num fromBuffer:(const void *)buffer
 {
 	if(![backingdata isKindOfClass:[NSMutableData class]]) [self _raiseNotSupported:_cmd];
 	NSMutableData *mbackingdata=(NSMutableData *)backingdata;
@@ -107,27 +107,27 @@
 	else return [super remainingFileContents];
 }
 
--(NSData *)readDataOfLength:(int)length
+-(NSData *)readDataOfLength:(NSInteger)length
 {
-	unsigned long totallen=backingdata.length;
+	NSUInteger totallen=backingdata.length;
 	if(memorypos+length>totallen) [self _raiseEOF];
 	NSData *subbackingdata=[backingdata subdataWithRange:NSMakeRange((long)memorypos,length)];
 	memorypos+=length;
 	return subbackingdata;
 }
 
--(NSData *)readDataOfLengthAtMost:(int)length;
+-(NSData *)readDataOfLengthAtMost:(NSInteger)length;
 {
-	unsigned long totallen=backingdata.length;
-	if(memorypos+length>totallen) length=(int)(totallen-memorypos);
+	NSUInteger totallen=backingdata.length;
+	if(memorypos+length>totallen) length=(NSInteger)(totallen-memorypos);
 	NSData *subbackingdata=[backingdata subdataWithRange:NSMakeRange((long)memorypos,length)];
 	memorypos+=length;
 	return subbackingdata;
 }
 
--(NSData *)copyDataOfLength:(int)length { return [self readDataOfLength:length]; }
+-(NSData *)copyDataOfLength:(NSInteger)length { return [self readDataOfLength:length]; }
 
--(NSData *)copyDataOfLengthAtMost:(int)length { return [self readDataOfLengthAtMost:length]; }
+-(NSData *)copyDataOfLengthAtMost:(NSInteger)length { return [self readDataOfLengthAtMost:length]; }
 
 -(NSString *)name
 {

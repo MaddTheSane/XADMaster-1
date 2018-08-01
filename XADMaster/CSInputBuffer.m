@@ -7,7 +7,7 @@
 
 // Allocation and management
 
-CSInputBuffer *CSInputBufferAlloc(CSHandle *parent,int size)
+CSInputBuffer *CSInputBufferAlloc(CSHandle *parent,NSInteger size)
 {
 	CSInputBuffer *self=malloc(sizeof(CSInputBuffer)+size);
 	if(!self) return NULL;
@@ -26,7 +26,7 @@ CSInputBuffer *CSInputBufferAlloc(CSHandle *parent,int size)
 	return self;
 }
 
-CSInputBuffer *CSInputBufferAllocWithBuffer(const uint8_t *buffer,int length,off_t startoffs)
+CSInputBuffer *CSInputBufferAllocWithBuffer(const uint8_t *buffer,NSInteger length,off_t startoffs)
 {
 	CSInputBuffer *self=malloc(sizeof(CSInputBuffer));
 	if(!self) return NULL;
@@ -70,7 +70,7 @@ void CSInputBufferFree(CSInputBuffer *self)
 	free(self);
 }
 
-void CSInputSetMemoryBuffer(CSInputBuffer *self,uint8_t *buffer,int length,off_t startoffs)
+void CSInputSetMemoryBuffer(CSInputBuffer *self,uint8_t *buffer,NSInteger length,off_t startoffs)
 {
 	self->eof=YES;
 	self->startoffs=-startoffs;
@@ -145,7 +145,7 @@ off_t CSInputBufferBitOffset(CSInputBuffer *self)
 
 void _CSInputFillBuffer(CSInputBuffer *self)
 {
-	int left=_CSInputBytesLeftInBuffer(self);
+	NSInteger left=_CSInputBytesLeftInBuffer(self);
 
 	if(left>=0) memmove(self->buffer,self->buffer+self->currbyte,left);
 	else
@@ -154,7 +154,7 @@ void _CSInputFillBuffer(CSInputBuffer *self)
 		left=0;
 	}
 
-	int actual=[self->parent readAtMost:self->bufsize-left toBuffer:self->buffer+left];
+	NSInteger actual=[self->parent readAtMost:self->bufsize-left toBuffer:self->buffer+left];
 	if(actual==0) self->eof=YES;
 
 	self->bufbytes=left+actual;
@@ -171,8 +171,8 @@ void _CSInputFillBits(CSInputBuffer *self)
 {
 	_CSInputCheckAndFillBuffer(self);
 
-	int numbytes=(32-self->numbits)>>3;
-	int left=_CSInputBytesLeftInBuffer(self);
+	NSInteger numbytes=(32-self->numbits)>>3;
+	NSInteger left=_CSInputBytesLeftInBuffer(self);
 	if(numbytes>left) numbytes=left;
 
 	int startoffset=self->numbits>>3;
@@ -220,8 +220,8 @@ void _CSInputFillBitsLE(CSInputBuffer *self)
 {
 	_CSInputCheckAndFillBuffer(self);
 
-	int numbytes=(32-self->numbits)>>3;
-	int left=_CSInputBytesLeftInBuffer(self);
+	NSInteger numbytes=(32-self->numbits)>>3;
+	NSInteger left=_CSInputBytesLeftInBuffer(self);
 	if(numbytes>left) numbytes=left;
 
 	int startoffset=self->numbits>>3;

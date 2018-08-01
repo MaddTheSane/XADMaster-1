@@ -8,7 +8,7 @@
 -(instancetype)initWithHandle:(CSHandle *)handle length:(off_t)length correctDigest:(NSData *)correctdigest;
 
 -(void)resetStream;
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 @property (NS_NONATOMIC_IOSONLY, readonly) BOOL hasChecksum;
 @property (NS_NONATOMIC_IOSONLY, readonly, getter=isChecksumCorrect) BOOL checksumCorrect;

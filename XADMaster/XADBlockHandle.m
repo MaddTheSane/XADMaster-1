@@ -94,10 +94,10 @@ firstBlock:(uint32_t)first headerSize:(off_t)headersize
 	else [self seekToFileOffset:numblocks*blocksize];
 }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	uint8_t *bytebuffer=(uint8_t *)buffer;
-	int total=0;
+	NSInteger total=0;
 
 	if(currpos+num>length) num=(int)(length-currpos);
 
@@ -111,10 +111,10 @@ firstBlock:(uint32_t)first headerSize:(off_t)headersize
 			[parent seekToFileOffset:blockoffsets[block]];
 		}
 
-		int numbytes=num-total;
+		NSInteger numbytes=num-total;
 		if(numbytes>blocksize-blockpos) numbytes=blocksize-blockpos;
 
-		int actual=[parent readAtMost:numbytes toBuffer:&bytebuffer[total]];
+		NSInteger actual=[parent readAtMost:numbytes toBuffer:&bytebuffer[total]];
 		if(actual==0) return total;
 
 		total+=actual;

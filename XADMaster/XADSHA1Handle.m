@@ -43,9 +43,9 @@ typedef SHA_CTX XADSHA1;
 	[parent seekToFileOffset:0];
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
-	int actual=[parent readAtMost:num toBuffer:buffer];
+	NSInteger actual=[parent readAtMost:num toBuffer:buffer];
 	XADSHA1_Update(&context,buffer,actual);
 	return actual;
 }

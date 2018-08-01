@@ -116,11 +116,11 @@ static const uint8_t InitSubstTable[256]=
 	}
 }
 
--(int)produceBlockAtOffset:(off_t)pos
+-(NSInteger)produceBlockAtOffset:(off_t)pos
 {
 	uint8_t inblock[16];
 
-	int actual=[parent readAtMost:16 toBuffer:inblock];
+	NSInteger actual=[parent readAtMost:16 toBuffer:inblock];
 	if(actual!=16) return -1;
 
 	uint32_t A=CSUInt32LE(&inblock[0])^key[0];

@@ -15,7 +15,7 @@ extern NSExceptionName const CSBzip2Exception;
 
 // Implemented by this class.
 -(void)resetStream;
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 // Checksum functions for XADMaster.
 @property (NS_NONATOMIC_IOSONLY, readonly) BOOL hasChecksum;

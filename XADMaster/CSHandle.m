@@ -78,9 +78,9 @@ NSString *const CSNotSupportedException=@"CSNotSupportedException";
 
 -(void)pushBackByte:(int)byte { [self _raiseNotImplemented:_cmd]; }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer { [self _raiseNotImplemented:_cmd]; return 0; }
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer { [self _raiseNotImplemented:_cmd]; return 0; }
 
--(void)writeBytes:(int)num fromBuffer:(const void *)buffer { [self _raiseNotImplemented:_cmd]; }
+-(void)writeBytes:(NSInteger)num fromBuffer:(const void *)buffer { [self _raiseNotImplemented:_cmd]; }
 
 
 
@@ -204,13 +204,13 @@ CSReadValueImpl(uint32_t,readID,CSUInt32BE)
 
 -(NSData *)readLine
 {
-	int (*readatmost_ptr)(id,SEL,int,void *)=(void *)[self methodForSelector:@selector(readAtMost:toBuffer:)];
+	NSInteger (*readatmost_ptr)(id,SEL,NSInteger,void *)=(void *)[self methodForSelector:@selector(readAtMost:toBuffer:)];
 
 	NSMutableData *data=[NSMutableData data];
 	for(;;)
 	{
 		uint8_t b[1];
-		int actual=readatmost_ptr(self,@selector(readAtMost:toBuffer:),1,b);
+		NSInteger actual=readatmost_ptr(self,@selector(readAtMost:toBuffer:),1,b);
 
 		if(actual==0)
 		{
@@ -264,17 +264,17 @@ CSReadValueImpl(uint32_t,readID,CSUInt32BE)
 	return [NSData dataWithData:data];
 }
 
--(NSData *)readDataOfLength:(int)length
+-(NSData *)readDataOfLength:(NSInteger)length
 {
 	return [self copyDataOfLength:length];
 }
 
--(NSData *)readDataOfLengthAtMost:(int)length
+-(NSData *)readDataOfLengthAtMost:(NSInteger)length
 {
 	return [self copyDataOfLengthAtMost:length];
 }
 
--(NSData *)copyDataOfLength:(int)length
+-(NSData *)copyDataOfLength:(NSInteger)length
 {
 	NSMutableData *data=[[NSMutableData alloc] initWithLength:length];
 	if(!data) [self _raiseMemory];
@@ -282,18 +282,18 @@ CSReadValueImpl(uint32_t,readID,CSUInt32BE)
 	return data;
 }
 
--(NSData *)copyDataOfLengthAtMost:(int)length
+-(NSData *)copyDataOfLengthAtMost:(NSInteger)length
 {
 	NSMutableData *data=[[NSMutableData alloc] initWithLength:length];
 	if(!data) [self _raiseMemory];
-	int actual=[self readAtMost:length toBuffer:data.mutableBytes];
+	NSInteger actual=[self readAtMost:length toBuffer:data.mutableBytes];
 	data.length = actual;
 	return data;
 }
 
--(void)readBytes:(int)num toBuffer:(void *)buffer
+-(void)readBytes:(NSInteger)num toBuffer:(void *)buffer
 {
-	int actual=[self readAtMost:num toBuffer:buffer];
+	NSInteger actual=[self readAtMost:num toBuffer:buffer];
 	if(actual!=num) [self _raiseEOF];
 }
 
@@ -306,7 +306,7 @@ CSReadValueImpl(uint32_t,readID,CSUInt32BE)
 	while(skipped<num)
 	{
 		off_t numbytes=num-skipped>sizeof(buf)?sizeof(buf):num-skipped;
-		int actual=[self readAtMost:(int)numbytes toBuffer:buf];
+		NSInteger actual=[self readAtMost:(NSInteger)numbytes toBuffer:buf];
 		skipped+=actual;
 		if(actual==0) break;
 	}

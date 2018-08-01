@@ -29,9 +29,9 @@
 	rc4=[(XADRC4Engine *)[XADRC4Engine alloc] initWithKey:key];
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
-	int actual=[parent readAtMost:num toBuffer:buffer];
+	NSInteger actual=[parent readAtMost:num toBuffer:buffer];
 	[rc4 encryptBytes:buffer length:actual];
 	return actual;
 }
@@ -77,7 +77,7 @@
 	return [NSData dataWithData:res];
 }
 
--(void)encryptBytes:(unsigned char *)bytes length:(int)length
+-(void)encryptBytes:(unsigned char *)bytes length:(NSInteger)length
 {
 	for(int n=0;n<length;n++)
 	{
@@ -88,7 +88,7 @@
 	}
 }
 
--(void)skipBytes:(int)length
+-(void)skipBytes:(NSInteger)length
 {
 	for(int n=0;n<length;n++)
 	{

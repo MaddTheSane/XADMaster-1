@@ -54,7 +54,7 @@ NSString *const CSBzip2Exception=@"CSBzip2Exception";
 	checksumcorrect=YES;
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	bzs.next_out=buffer;
 	bzs.avail_out=num;
@@ -63,7 +63,7 @@ NSString *const CSBzip2Exception=@"CSBzip2Exception";
 	{
 		if(!bzs.avail_in)
 		{
-			bzs.avail_in=[parent readAtMost:sizeof(inbuffer) toBuffer:inbuffer];
+			bzs.avail_in=(UInt)[parent readAtMost:sizeof(inbuffer) toBuffer:inbuffer];
 			bzs.next_in=(void *)inbuffer;
 
 			if(!bzs.avail_in) [parent _raiseEOF];
@@ -80,7 +80,7 @@ NSString *const CSBzip2Exception=@"CSBzip2Exception";
 
 			// Fill up buffer.
 			int spaceleft=sizeof(inbuffer)-bzs.avail_in;
-			int more=[parent readAtMost:spaceleft toBuffer:inbuffer+bzs.avail_in];
+			int more=(int)[parent readAtMost:spaceleft toBuffer:inbuffer+bzs.avail_in];
 			bzs.avail_in+=more;
 
 			// Check for another stream header.

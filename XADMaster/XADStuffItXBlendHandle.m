@@ -27,9 +27,9 @@
 	currhandle=nil;
 }
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
-	int bytes=0;
+	NSInteger bytes=0;
 	uint8_t *bytebuffer=buffer;
 
 	while(bytes<num)
@@ -37,7 +37,7 @@
 		if(!currhandle)
 		{
 			uint8_t buf[6];
-			int actual=[parent readAtMost:6 toBuffer:buf];
+			NSInteger actual=[parent readAtMost:6 toBuffer:buf];
 
 			if(actual<6)
 			{
@@ -105,7 +105,7 @@
 			}
 		}
 
-		int actual=[currhandle readAtMost:num-bytes toBuffer:bytebuffer+bytes];
+		NSInteger actual=[currhandle readAtMost:num-bytes toBuffer:bytebuffer+bytes];
 		if(actual==0)
 		{
 			if(currinput) CSInputSynchronizeFileOffset(currinput);

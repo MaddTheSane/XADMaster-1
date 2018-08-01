@@ -24,7 +24,7 @@ bigEndianCRC:(BOOL)bigendian conditioned:(BOOL)conditioned;
 CRCSize:(int)crcbytes bigEndianCRC:(BOOL)bigendian CRCTable:(const uint32_t *)crctable;
 
 -(void)resetStream;
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 @property (NS_NONATOMIC_IOSONLY, readonly) BOOL hasChecksum;
 @property (NS_NONATOMIC_IOSONLY, readonly, getter=isChecksumCorrect) BOOL checksumCorrect;

@@ -159,7 +159,7 @@ static BOOL IsDelimiter(uint8_t c);
 	if(currchar==-1) [fh _raiseEOF];
 
 	uint8_t byte;
-	int actual=[fh readAtMost:1 toBuffer:&byte];
+	NSInteger actual=[fh readAtMost:1 toBuffer:&byte];
 	if(actual!=0) currchar=byte;
 	else currchar=-1;
 }

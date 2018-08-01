@@ -14,6 +14,6 @@
 
 -(void)resetBlockStream;
 -(void)calculateKey;
--(int)produceBlockAtOffset:(off_t)pos;
+-(NSInteger)produceBlockAtOffset:(off_t)pos;
 
 @end

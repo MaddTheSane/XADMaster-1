@@ -48,7 +48,7 @@
 		{
 			CSFileHandle *filehandle=[CSFileHandle fileHandleForReadingAtPath:fullpath];
 			uint8_t header[100];
-			int actual=[filehandle readAtMost:sizeof(header) toBuffer:header];
+			NSInteger actual=[filehandle readAtMost:sizeof(header) toBuffer:header];
 			if(actual<sizeof(header)) continue;
 			if(header[0]!=0xb0) continue;
 			if(header[1]!=0x56) continue;

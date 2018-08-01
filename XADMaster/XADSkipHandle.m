@@ -181,7 +181,7 @@ static off_t ActualOffsetToSkip(XADSkipHandle *self,off_t pos)
 	// TODO: handle skips at EOF
 }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	off_t pos=parent.offsetInFile;
 	int index=FindIndexOfRegionContainingActualOffset(self,pos);
@@ -198,7 +198,7 @@ static off_t ActualOffsetToSkip(XADSkipHandle *self,off_t pos)
 			return total;
 		}
 
-		int actual=[parent readAtMost:(int)(gap-pos) toBuffer:buffer+total];
+		NSInteger actual=[parent readAtMost:(int)(gap-pos) toBuffer:buffer+total];
 		total+=actual;
 
 		if(actual!=gap-pos) return total;

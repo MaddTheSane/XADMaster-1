@@ -30,7 +30,7 @@ NSString *const CSByteStreamEOFReachedException=@"CSByteStreamEOFReachedExceptio
 
 
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	bytesproduced=0;
 

@@ -58,12 +58,12 @@
 	return [self initWithInputBufferForHandle:handle length:length bufferSize:4096];
 }
 
--(id)initWithInputBufferForHandle:(CSHandle *)handle bufferSize:(int)buffersize
+-(id)initWithInputBufferForHandle:(CSHandle *)handle bufferSize:(NSInteger)buffersize
 {
 	return [self initWithInputBufferForHandle:handle length:CSHandleMaxLength bufferSize:buffersize];
 }
 
--(id)initWithInputBufferForHandle:(CSHandle *)handle length:(off_t)length bufferSize:(int)buffersize;
+-(id)initWithInputBufferForHandle:(CSHandle *)handle length:(off_t)length bufferSize:(NSInteger)buffersize;
 {
 	if(self=[super initWithParentHandle:handle])
 	{
@@ -133,7 +133,7 @@
 
 -(void)seekToEndOfFile { [self readAndDiscardAtMost:CSHandleMaxLength]; }
 
--(int)readAtMost:(int)num toBuffer:(void *)buffer
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer
 {
 	if(needsreset) { [self resetStream]; needsreset=NO; }
 
@@ -141,7 +141,7 @@
 	if(streampos+num>streamlength) num=(int)(streamlength-streampos);
 	if(!num) return 0;
 
-	int offs=0;
+	NSInteger offs=0;
 	if(nextstreambyte>=0)
 	{
 		((uint8_t *)buffer)[0]=nextstreambyte;
@@ -151,7 +151,7 @@
 		if(num==1) return 1;
 	}
 
-	int actual=[self streamAtMost:num-offs toBuffer:((uint8_t *)buffer)+offs];
+	NSInteger actual=[self streamAtMost:num-offs toBuffer:((uint8_t *)buffer)+offs];
 
 	if(actual==0) endofstream=YES;
 
@@ -164,7 +164,7 @@
 
 -(void)resetStream {}
 
--(int)streamAtMost:(int)num toBuffer:(void *)buffer { return 0; }
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer { return 0; }
 
 
 

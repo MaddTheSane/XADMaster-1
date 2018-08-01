@@ -7,26 +7,26 @@
 {
 	uint8_t *_currblock;
 	off_t _blockstartpos;
-	int _blocklength;
+	NSInteger _blocklength;
 	BOOL _endofblocks;
 }
 
 // Intializers
 //-(instancetype)initWithName:(NSString *)descname length:(off_t)length;
--(instancetype)initWithInputBufferForHandle:(CSHandle *)handle length:(off_t)length bufferSize:(int)buffersize;
+-(instancetype)initWithInputBufferForHandle:(CSHandle *)handle length:(off_t)length bufferSize:(NSInteger)buffersize;
 -(instancetype)initAsCopyOf:(CSBlockStreamHandle *)other;
 
 // Implemented by this class
 -(void)seekToFileOffset:(off_t)offs;
 -(void)resetStream;
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 // Internal methods
 -(void)_readNextBlock;
 
 // Implemented by subclasses
 -(void)resetBlockStream;
--(int)produceBlockAtOffset:(off_t)pos;
+-(NSInteger)produceBlockAtOffset:(off_t)pos;
 
 // Called by subclasses
 -(void)setBlockPointer:(uint8_t *)blockpointer;

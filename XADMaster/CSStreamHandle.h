@@ -21,8 +21,8 @@
 -(instancetype)initWithParentHandle:(CSHandle *)handle length:(off_t)length;
 -(instancetype)initWithInputBufferForHandle:(CSHandle *)handle;
 -(instancetype)initWithInputBufferForHandle:(CSHandle *)handle length:(off_t)length;
--(instancetype)initWithInputBufferForHandle:(CSHandle *)handle bufferSize:(int)buffersize;
--(instancetype)initWithInputBufferForHandle:(CSHandle *)handle length:(off_t)length bufferSize:(int)buffersize;
+-(instancetype)initWithInputBufferForHandle:(CSHandle *)handle bufferSize:(NSInteger)buffersize;
+-(instancetype)initWithInputBufferForHandle:(CSHandle *)handle length:(off_t)length bufferSize:(NSInteger)buffersize;
 -(instancetype)initAsCopyOf:(CSStreamHandle *)other;
 
 // Implemented by this class
@@ -31,11 +31,11 @@
 @property (NS_NONATOMIC_IOSONLY, readonly) BOOL atEndOfFile;
 -(void)seekToFileOffset:(off_t)offs;
 -(void)seekToEndOfFile;
--(int)readAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 // Implemented by subclasses
 -(void)resetStream;
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 
 // Called by subclasses
 -(void)endStream;

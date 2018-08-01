@@ -19,7 +19,7 @@
 -(instancetype)initAsCopyOf:(CSByteStreamHandle *)other;
 
 // Implemented by this class
--(int)streamAtMost:(int)num toBuffer:(void *)buffer;
+-(NSInteger)streamAtMost:(NSInteger)num toBuffer:(void *)buffer;
 -(void)resetStream;
 
 // Implemented by subclasses

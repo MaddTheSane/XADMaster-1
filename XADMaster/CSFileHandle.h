@@ -45,8 +45,8 @@ extern NSExceptionName const CSFileErrorException;
 -(void)seekToFileOffset:(off_t)offs;
 -(void)seekToEndOfFile;
 -(void)pushBackByte:(int)byte;
--(int)readAtMost:(int)num toBuffer:(void *)buffer;
--(void)writeBytes:(int)num fromBuffer:(const void *)buffer;
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer;
+-(void)writeBytes:(NSInteger)num fromBuffer:(const void *)buffer;
 
 -(NSString *)name;
 

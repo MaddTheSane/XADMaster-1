@@ -30,15 +30,15 @@
 -(void)seekToFileOffset:(off_t)offs;
 -(void)seekToEndOfFile;
 //-(void)pushBackByte:(int)byte;
--(int)readAtMost:(int)num toBuffer:(void *)buffer;
--(void)writeBytes:(int)num fromBuffer:(const void *)buffer;
+-(NSInteger)readAtMost:(NSInteger)num toBuffer:(void *)buffer;
+-(void)writeBytes:(NSInteger)num fromBuffer:(const void *)buffer;
 
 -(NSData *)fileContents;
 -(NSData *)remainingFileContents;
--(NSData *)readDataOfLength:(int)length;
--(NSData *)readDataOfLengthAtMost:(int)length;
--(NSData *)copyDataOfLength:(int)length;
--(NSData *)copyDataOfLengthAtMost:(int)length;
+-(NSData *)readDataOfLength:(NSInteger)length;
+-(NSData *)readDataOfLengthAtMost:(NSInteger)length;
+-(NSData *)copyDataOfLength:(NSInteger)length;
+-(NSData *)copyDataOfLengthAtMost:(NSInteger)length;
 
 -(NSString *)name;
 
