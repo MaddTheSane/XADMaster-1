@@ -101,6 +101,7 @@ _XADCRCTable_edb88320
 _XADCRCTable_c96c5795d7870f42
 
 _CSBzip2Exception
+_CSBzip2ErrorDomain
 _CSCannotOpenFileException
 _CSFileErrorException
 _CSOutOfMemoryException

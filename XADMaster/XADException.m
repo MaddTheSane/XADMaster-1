@@ -83,6 +83,9 @@ NSString *const XADExceptionReasonKey=@"XADExceptionReason";
         } else if([name isEqual:CSZlibException]) {
             return [NSError errorWithDomain:XADErrorDomain code:XADErrorDecrunch userInfo:usrInfo];
         } else if([name isEqual:CSBzip2Exception]) {
+            int bzErr = [e.userInfo[@"BZ2ErrorType"] intValue];
+            NSError *err = [NSError errorWithDomain:CSBzip2ErrorDomain code:bzErr userInfo:nil];
+            usrInfo[NSUnderlyingErrorKey] = err;
             return [NSError errorWithDomain:XADErrorDomain code:XADErrorDecrunch userInfo:usrInfo];
         } else {
             return [NSError errorWithDomain:XADErrorDomain code:XADErrorUnknown userInfo:usrInfo];
