@@ -657,10 +657,7 @@ resourceFork:(XADResourceFork *)fork name:(NSString *)name propertiesToAdd:(NSMu
 	stringsource.fixedEncodingName = encodingname;
 }
 
--(BOOL)caresAboutPasswordEncoding
-{
-	return caresaboutpasswordencoding;
-}
+@synthesize caresAboutPasswordEncoding = caresaboutpasswordencoding;
 
 -(NSString *)passwordEncodingName
 {

@@ -59,7 +59,7 @@
 
 -(off_t)fileSize { return backingdata.length; }
 
--(off_t)offsetInFile { return memorypos; }
+@synthesize offsetInFile = memorypos;
 
 -(BOOL)atEndOfFile { return memorypos==backingdata.length; }
 

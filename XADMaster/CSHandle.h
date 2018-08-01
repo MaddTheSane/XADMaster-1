@@ -17,6 +17,7 @@
 #define ftello ftello64
 #endif
 
+NS_ASSUME_NONNULL_BEGIN
 
 extern NSExceptionName const CSOutOfMemoryException;
 extern NSExceptionName const CSEndOfFileException;
@@ -89,8 +90,8 @@ extern NSExceptionName const CSNotSupportedException;
 -(void)flushReadBits;
 
 -(NSData *)readLine;
--(NSString *)readLineWithEncoding:(NSStringEncoding)encoding;
--(NSString *)readUTF8Line;
+-(nullable NSString *)readLineWithEncoding:(NSStringEncoding)encoding NS_REFINED_FOR_SWIFT;
+-(nullable NSString *)readUTF8Line;
 
 -(NSData *)fileContents;
 -(NSData *)remainingFileContents;
@@ -141,8 +142,8 @@ extern NSExceptionName const CSNotSupportedException;
 -(void)_raiseNotImplemented:(SEL)selector NS_SWIFT_UNAVAILABLE("Call throws exception");
 -(void)_raiseNotSupported:(SEL)selector NS_SWIFT_UNAVAILABLE("Call throws exception");
 
-@property (NS_NONATOMIC_IOSONLY, readonly, copy) NSString *name;
-@property (NS_NONATOMIC_IOSONLY, strong) CSHandle *parentHandle;
+@property (NS_NONATOMIC_IOSONLY, readonly, copy, nullable) NSString *name;
+@property (NS_NONATOMIC_IOSONLY, strong, nullable) CSHandle *parentHandle;
 
 @end
 
@@ -168,3 +169,4 @@ static inline void CSSetInt32LE(uint8_t *b,int32_t n) { b[3]=(n>>24)&0xff; b[2]=
 static inline void CSSetUInt16LE(uint8_t *b,uint16_t n) { b[1]=(n>>8)&0xff; b[0]=n&0xff; }
 static inline void CSSetUInt32LE(uint8_t *b,uint32_t n) { b[3]=(n>>24)&0xff; b[2]=(n>>16)&0xff; b[1]=(n>>8)&0xff; b[0]=n&0xff; }
 
+NS_ASSUME_NONNULL_END

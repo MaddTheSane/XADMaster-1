@@ -2120,6 +2120,8 @@
 		551BADCB1EB032B500EAF64E /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBCC54C0EE73B7F006C3AE2 /* libbz2.tbd */; };
 		551BADCD1EB032B500EAF64E /* UniversalDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B34AA8411C30BC100396C26 /* UniversalDetector.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		551BADD31EB0336300EAF64E /* XADPlatformiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83727C15CEA27000B0DC9D /* XADPlatformiOS.m */; };
+		551FC04321120AE500FC1109 /* XADHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FC04221120AE500FC1109 /* XADHandle.swift */; };
+		551FC04421120AE500FC1109 /* XADHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FC04221120AE500FC1109 /* XADHandle.swift */; };
 		5547F4771FBFBD01005D6DEF /* CSSegmentedHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B8983311CDE020500D52A2A /* CSSegmentedHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5547F4791FBFBD06005D6DEF /* CSSegmentedHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B8983311CDE020500D52A2A /* CSSegmentedHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55541F6C1EA7EBC5001A6927 /* XADUnarchiverSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6B1EA7EBC5001A6927 /* XADUnarchiverSwift.swift */; };
@@ -2877,6 +2879,7 @@
 		32DBCF5E0370ADEE00C91783 /* XADMaster_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XADMaster_Prefix.pch; sourceTree = "<group>"; };
 		5500A60F1D776ADB00321300 /* XADMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XADMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		551BADD11EB032B500EAF64E /* XADMaster.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XADMaster.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		551FC04221120AE500FC1109 /* XADHandle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XADHandle.swift; sourceTree = "<group>"; };
 		55541F6B1EA7EBC5001A6927 /* XADUnarchiverSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XADUnarchiverSwift.swift; sourceTree = "<group>"; };
 		55541F6D1EA7EF90001A6927 /* XADPlatformSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XADPlatformSwift.swift; sourceTree = "<group>"; };
 		55541F6F1EA7F339001A6927 /* XADStringSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XADStringSwift.swift; sourceTree = "<group>"; };
@@ -4098,6 +4101,7 @@
 				55541F6F1EA7F339001A6927 /* XADStringSwift.swift */,
 				55541F711EA7FBC3001A6927 /* XADArchive.swift */,
 				55541F761EA91BE0001A6927 /* XADSimpleUnarchiver.swift */,
+				551FC04221120AE500FC1109 /* XADHandle.swift */,
 			);
 			path = XADSimpleMasterSwift;
 			sourceTree = "<group>";
@@ -6538,6 +6542,7 @@
 				55541F6E1EA7EF90001A6927 /* XADPlatformSwift.swift in Sources */,
 				555EF07C1EA7DB57000CAE58 /* XADArchiveParserSwift.swift in Sources */,
 				55541F771EA91BE1001A6927 /* XADSimpleUnarchiver.swift in Sources */,
+				551FC04321120AE500FC1109 /* XADHandle.swift in Sources */,
 				55541F6C1EA7EBC5001A6927 /* XADUnarchiverSwift.swift in Sources */,
 				55541F721EA7FBC3001A6927 /* XADArchive.swift in Sources */,
 				55541F701EA7F339001A6927 /* XADStringSwift.swift in Sources */,
@@ -6551,6 +6556,7 @@
 				5591220E1EB3D07D007CF99D /* XADPlatformSwift.swift in Sources */,
 				5591220F1EB3D07D007CF99D /* XADArchiveParserSwift.swift in Sources */,
 				559122111EB3D07D007CF99D /* XADSimpleUnarchiver.swift in Sources */,
+				551FC04421120AE500FC1109 /* XADHandle.swift in Sources */,
 				559122121EB3D07D007CF99D /* XADUnarchiverSwift.swift in Sources */,
 				559122131EB3D07D007CF99D /* XADArchive.swift in Sources */,
 				559122141EB3D07D007CF99D /* XADStringSwift.swift in Sources */,
