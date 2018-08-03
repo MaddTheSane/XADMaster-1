@@ -14,7 +14,7 @@ import XADMaster.Exception
 extension XADPath {
 	@available(*, deprecated, renamed: "sanitizedPathString(with:)")
 	open func sanitizedPathString(withEncoding encoding: String.Encoding) -> String {
-		return __sanitizedPathString(withEncoding: encoding.rawValue)
+		return sanitizedPathString(with: encoding)
 	}
 	
 	open func sanitizedPathString(with encoding: String.Encoding) -> String {
@@ -27,8 +27,7 @@ extension XADError: CustomStringConvertible {
 	public var description: String {
 		if let errDesc = XADDescribeError(code) {
 			return errDesc
-		}
-		if self.code == .none {
+		} else if self.code == .none {
 			return "No Error"
 		}
 		return "Unknown error \(code.rawValue)"

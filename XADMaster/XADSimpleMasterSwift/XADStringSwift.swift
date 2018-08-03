@@ -10,36 +10,56 @@ import Foundation
 import XADMaster.XADString
 
 extension XADStringProtocol {
-	public func canDecode(withEncoding encoding: String.Encoding) -> Bool {
+	public func canDecode(with encoding: String.Encoding) -> Bool {
 		return __canDecode(withEncoding: encoding.rawValue)
 	}
 	
-	public func string(withEncoding encoding: String.Encoding) -> String? {
+	public func string(with encoding: String.Encoding) -> String? {
 		return __string(withEncoding: encoding.rawValue)
 	}
 	
 	public var encoding: String.Encoding {
 		return String.Encoding(rawValue: __encoding)
 	}
+	
+	@available(*, deprecated, renamed: "canDecode(with:)")
+	public func canDecode(withEncoding encoding: String.Encoding) -> Bool {
+		return canDecode(with: encoding)
+	}
+	
+	@available(*, deprecated, renamed: "string(with:)")
+	public func string(withEncoding encoding: String.Encoding) -> String? {
+		return string(with: encoding)
+	}
 }
 
 extension XADString {
-	@nonobjc open class func encodingName(forEncoding encoding: String.Encoding) -> XADStringEncodingName {
+	@nonobjc open class func encodingName(for encoding: String.Encoding) -> XADStringEncodingName {
 		return __encodingName(forEncoding: encoding.rawValue)
 	}
 	
-	@nonobjc open class func encoding(forEncodingName encoding: XADStringEncodingName) -> String.Encoding {
+	@nonobjc open class func encoding(for encoding: XADStringEncodingName) -> String.Encoding {
 		return String.Encoding(rawValue: __encoding(forEncodingName: encoding))
+	}
+	
+	@available(*, deprecated, renamed: "encodingName(for:)")
+	@nonobjc open class func encodingName(forEncoding encoding: String.Encoding) -> XADStringEncodingName {
+		return encodingName(for: encoding)
+	}
+	
+	@available(*, deprecated, renamed: "encoding(for:)")
+	@nonobjc open class func encoding(forEncodingName encoding: XADStringEncodingName) -> String.Encoding {
+		return self.encoding(for: encoding)
 	}
 }
 
 extension XADStringEncodingName {
 	public init(forEncoding encoding: String.Encoding) {
-		self = XADString.encodingName(forEncoding: encoding)
+		self = XADString.encodingName(for: encoding)
 	}
 	
 	public var encoding: String.Encoding {
-		return XADString.encoding(forEncodingName: self)
+		return XADString.encoding(for: self)
 	}
 }
 

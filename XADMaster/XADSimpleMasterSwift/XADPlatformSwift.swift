@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XADMaster.Exception
 import XADMaster.Platform
 
 extension XADPlatform {

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import XADMaster.Exception
 import XADMaster.XADArchive
 
 extension XADArchive {
