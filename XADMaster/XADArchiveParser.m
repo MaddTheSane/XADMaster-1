@@ -1227,8 +1227,10 @@ regex:(XADRegex *)regex firstFileExtension:(NSString *)firstext
 {
 	NSString *fullreason=[[NSString alloc] initWithFormat:reason arguments:args];
 	
-	[delegate archiveParser:self findsFileInterestingForReason:[NSString stringWithFormat:
-	@"%@: %@", self.formatName, fullreason]];
+	if ([delegate respondsToSelector:@selector(archiveParser:findsFileInterestingForReason:)]) {
+		[delegate archiveParser:self findsFileInterestingForReason:[NSString stringWithFormat:
+																	@"%@: %@", self.formatName, fullreason]];
+	}
 
 	[fullreason release];
 }
@@ -1559,6 +1561,5 @@ name:(NSString *)name { return nil; }
 -(void)archiveParser:(XADArchiveParser *)parser foundEntryWithDictionary:(NSDictionary *)dict {}
 -(BOOL)archiveParsingShouldStop:(XADArchiveParser *)parser { return NO; }
 -(void)archiveParserNeedsPassword:(XADArchiveParser *)parser {}
--(void)archiveParser:(XADArchiveParser *)parser findsFileInterestingForReason:(NSString *)reason {}
 
 @end
