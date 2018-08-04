@@ -1,6 +1,6 @@
 #import "XADString.h"
 
-#import "../UniversalDetector/UniversalDetector.h"
+#import <UniversalDetector/UniversalDetector.h>
 
 #if !__has_feature(objc_arc)
 #error this file needs to be compiled with Automatic Reference Counting (ARC)
