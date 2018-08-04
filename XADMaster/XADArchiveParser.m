@@ -618,7 +618,9 @@ resourceFork:(XADResourceFork *)fork name:(NSString *)name propertiesToAdd:(NSMu
 {
 	if(!password)
 	{
-		[delegate archiveParserNeedsPassword:self];
+		if([delegate respondsToSelector:@selector(archiveParserNeedsPassword:)]) {
+			[delegate archiveParserNeedsPassword:self];
+		}
 		if(!password) return @"";
 	}
 	return password;
@@ -867,7 +869,9 @@ regex:(XADRegex *)regex firstFileExtension:(NSString *)firstext
 	if(!delegate) return YES;
 	if(shouldstop) return NO;
 
-	shouldstop=[delegate archiveParsingShouldStop:self];
+	if ([delegate respondsToSelector:@selector(archiveParsingShouldStop:)]) {
+		shouldstop=[delegate archiveParsingShouldStop:self];
+	}
 	return !shouldstop;
 }
 
@@ -1093,12 +1097,14 @@ regex:(XADRegex *)regex firstFileExtension:(NSString *)firstext
 
 
 	@autoreleasepool {
-		if (retainpos) {
-			off_t pos=sourcehandle.offsetInFile;
-			[delegate archiveParser:self foundEntryWithDictionary:dict];
-			[sourcehandle seekToFileOffset:pos];
-		} else
-			[delegate archiveParser:self foundEntryWithDictionary:dict];
+		if ([delegate respondsToSelector:@selector(archiveParser:foundEntryWithDictionary:)]) {
+			if (retainpos) {
+				off_t pos=sourcehandle.offsetInFile;
+				[delegate archiveParser:self foundEntryWithDictionary:dict];
+				[sourcehandle seekToFileOffset:pos];
+			} else
+				[delegate archiveParser:self foundEntryWithDictionary:dict];
+		}
 	}
 }
 
@@ -1552,14 +1558,5 @@ name:(NSString *)name { return nil; }
 	return CFBridgingRelease(possibleOSUTI);
 }
 #endif
-
-@end
-
-
-@implementation NSObject (XADArchiveParserDelegate)
-
--(void)archiveParser:(XADArchiveParser *)parser foundEntryWithDictionary:(NSDictionary *)dict {}
--(BOOL)archiveParsingShouldStop:(XADArchiveParser *)parser { return NO; }
--(void)archiveParserNeedsPassword:(XADArchiveParser *)parser {}
 
 @end
