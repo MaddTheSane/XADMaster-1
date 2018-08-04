@@ -67,19 +67,13 @@
 +(NSData *)dataForString:(NSString *)string encodingName:(NSString *)encoding
 {
 	NSInteger numchars=string.length;
+	NSStringEncoding nsEnc = [self encodingForEncodingName:encoding];
+	NSInteger numBytes = [string lengthOfBytesUsingEncoding:nsEnc];
+	if (numBytes == 0 && numchars != 0) {
+		return nil;
+	}
 
-	CFIndex numbytes;
-	if(CFStringGetBytes((CFStringRef)string,CFRangeMake(0,numchars),
-	[self CFStringEncodingForEncodingName:encoding],0,false,
-	NULL,0,&numbytes)!=numchars) return nil;
-
-	uint8_t *bytes=malloc(numbytes);
-
-	CFStringGetBytes((CFStringRef)string,CFRangeMake(0,numchars),
-	[self CFStringEncodingForEncodingName:encoding],0,false,
-	bytes,numbytes,NULL);
-
-	return [NSData dataWithBytesNoCopy:bytes length:numbytes freeWhenDone:YES];
+	return [string dataUsingEncoding:nsEnc];
 }
 
 +(NSArray *)availableEncodingNames
