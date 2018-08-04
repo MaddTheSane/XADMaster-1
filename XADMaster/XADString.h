@@ -63,9 +63,9 @@ extern XADStringEncodingName const XADMacOSCroatianStringEncodingName NS_SWIFT_N
 
 @protocol XADString <NSObject>
 
--(BOOL)canDecodeWithEncodingName:(XADStringEncodingName)encoding;
+-(BOOL)canDecodeWithEncodingName:(XADStringEncodingName)encoding NS_SWIFT_NAME(canDecode(with:));
 @property (NS_NONATOMIC_IOSONLY, readonly, copy, nullable) NSString *string;
--(nullable NSString *)stringWithEncodingName:(XADStringEncodingName)encoding;
+-(nullable NSString *)stringWithEncodingName:(XADStringEncodingName)encoding NS_SWIFT_NAME(string(with:));
 @property (NS_NONATOMIC_IOSONLY, readonly, copy, nullable) NSData *data;
 
 @property (NS_NONATOMIC_IOSONLY, readonly) BOOL encodingIsKnown;
