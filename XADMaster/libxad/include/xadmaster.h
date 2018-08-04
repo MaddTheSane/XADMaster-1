@@ -907,12 +907,12 @@ struct xadDiskInfo {
 #define XADPMODE_GETINFOEND     6 /* (V11) */
 
 typedef CF_ENUM(xadUINT32, XADProgressMode) {
-  xadProgressModeAsk        = 1,
-  xadProgressModeProgress   = 2,
-  xadProgressModeEnd        = 3,
-  xadProgressModeError      = 4,
-  xadProgressModeNewEntry   = 5,
-  xadProgressModeGetInfoEnd = 6,
+  XADProgressModeAsk        = 1,
+  XADProgressModeProgress   = 2,
+  XADProgressModeEnd        = 3,
+  XADProgressModeError      = 4,
+  XADProgressModeNewEntry   = 5,
+  XADProgressModeGetInfoEnd = 6,
 };
   
 /* flags for progress hook and ProgressInfo status field */
