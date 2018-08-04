@@ -105,10 +105,10 @@ NSString *const XADFinderFlags=@"XADFinderFlags";
 			if ([self _parseWithErrorPointer:&tmpErr]) {
 				return self;
 			} else if (error) {
-				*error = [NSError errorWithDomain:XADErrorDomain code:tmpErr userInfo:nil];
+				*error = [NSError errorWithDomain:XADErrorDomain code:tmpErr userInfo:@{NSURLErrorKey: file}];
 			}
 		} else if (error) {
-			*error = [NSError errorWithDomain:XADErrorDomain code:XADErrorDataFormat userInfo:nil];
+			*error = [NSError errorWithDomain:XADErrorDomain code:XADErrorDataFormat userInfo:@{NSURLErrorKey: file}];
 		}
 	}
 	

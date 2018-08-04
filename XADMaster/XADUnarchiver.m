@@ -91,12 +91,16 @@
 
 -(void)archiveParserNeedsPassword:(XADArchiveParser *)parser
 {
-	[delegate unarchiverNeedsPassword:self];
+	if ([delegate respondsToSelector:@selector(unarchiverNeedsPassword:)]) {
+		[delegate unarchiverNeedsPassword:self];
+	}
 }
 
 -(void)archiveParser:(XADArchiveParser *)parser findsFileInterestingForReason:(NSString *)reason
 {
-	[delegate unarchiver:self findsFileInterestingForReason:reason];
+	if ([delegate respondsToSelector:@selector(unarchiver:findsFileInterestingForReason:)]) {
+		[delegate unarchiver:self findsFileInterestingForReason:reason];
+	}
 }
 
 
@@ -150,7 +154,9 @@
 		{
 			return XADErrorNone;
 		}
-		[delegate unarchiver:self willExtractEntryWithDictionary:dict to:path];
+		if ([delegate respondsToSelector:@selector(unarchiver:willExtractEntryWithDictionary:to:)]) {
+			[delegate unarchiver:self willExtractEntryWithDictionary:dict to:path];
+		}
 	}
 
 	XADError error;
@@ -288,8 +294,7 @@ static NSComparisonResult SortDirectoriesByDepthAndResource(id entry1,id entry2,
 -(XADError)_fixDeferredLinks
 {
 	NSEnumerator *enumerator=[deferredlinks objectEnumerator];
-	NSArray *entry;
-	while((entry=[enumerator nextObject]))
+	for(NSArray *entry in enumerator)
 	{
 		NSString *path=entry[0];
 		NSString *linkdest=entry[1];
@@ -524,7 +529,7 @@ deferDirectories:(BOOL)defer
 	{
 		if(isdir) return XADErrorNone;
 
-		if(!delegate) return XADErrorMakeDirectory;
+		if(!delegate || ![delegate respondsToSelector:@selector(unarchiver:shouldDeleteFileAndCreateDirectory:)]) return XADErrorMakeDirectory;
 		if(![delegate unarchiver:self shouldDeleteFileAndCreateDirectory:path]) return XADErrorMakeDirectory;
 		if(![XADPlatform removeItemAtPath:path]) return XADErrorMakeDirectory;
 	}
@@ -533,7 +538,7 @@ deferDirectories:(BOOL)defer
 		XADError error=[self _ensureDirectoryExists:path.stringByDeletingLastPathComponent];
 		if(error) return error;
 
-		if(delegate)
+		if(delegate && [delegate respondsToSelector:@selector(unarchiver:shouldCreateDirectory:)])
 		{
 			if(![delegate unarchiver:self shouldCreateDirectory:path]) return XADErrorMakeDirectory;
 		}
@@ -571,8 +576,10 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 	@try
 	{
 		// Send a progress report to show that we are starting.
-		[delegate unarchiver:self extractionProgressForEntryWithDictionary:dict
-		fileFraction:0 estimatedTotalFraction:parser.handle.estimatedProgress];
+		if ([delegate respondsToSelector:@selector(unarchiver:extractionProgressForEntryWithDictionary:fileFraction:estimatedTotalFraction:)]) {
+			[delegate unarchiver:self extractionProgressForEntryWithDictionary:dict
+			fileFraction:0 estimatedTotalFraction:parser.handle.estimatedProgress];
+		}
 
 		// Try to find the size of this entry.
 		NSNumber *sizenum=dict[XADFileSizeKey];
@@ -599,7 +606,10 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 
 		for(;;)
 		{
-			if(self._shouldStop) return XADErrorBreak;
+			if(self._shouldStop) {
+				free(buf);
+				return XADErrorBreak;
+			}
 
 			// Read some data, and send it to the output function.
 			// Stop if no more data was available.
@@ -623,8 +633,10 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 				if(sizenum != nil) progress=(double)done/(double)size;
 				else progress=srchandle.estimatedProgress;
 
-				[delegate unarchiver:self extractionProgressForEntryWithDictionary:dict
-				fileFraction:progress estimatedTotalFraction:parser.handle.estimatedProgress];
+				if ([delegate respondsToSelector:@selector(unarchiver:extractionProgressForEntryWithDictionary:fileFraction:estimatedTotalFraction:)]) {
+					[delegate unarchiver:self extractionProgressForEntryWithDictionary:dict
+					fileFraction:progress estimatedTotalFraction:parser.handle.estimatedProgress];
+				}
 			}
 		}
 
@@ -645,8 +657,10 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 		}
 
 		// Send a final progress report.
-		[delegate unarchiver:self extractionProgressForEntryWithDictionary:dict
-		fileFraction:1 estimatedTotalFraction:parser.handle.estimatedProgress];
+		if ([delegate respondsToSelector:@selector(unarchiver:extractionProgressForEntryWithDictionary:fileFraction:estimatedTotalFraction:)]) {
+			[delegate unarchiver:self extractionProgressForEntryWithDictionary:dict
+			fileFraction:1 estimatedTotalFraction:parser.handle.estimatedProgress];
+		}
 	}
 	@catch(id e)
 	{
@@ -678,6 +692,7 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 				
 			case XADForkStyleHFVExplorerAppleDouble:
 				// TODO: is this path generation correct?
+				// FIXME: this is not correct: HFVExplorer requires non-ascii characters to be percent-encoded.
 				return [path.stringByDeletingLastPathComponent stringByAppendingPathComponent:
 						[@"%" stringByAppendingString:path.lastPathComponent]];
 				break;
@@ -694,7 +709,10 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 	if(!delegate) return NO;
 	if(shouldstop) return YES;
 
-	return shouldstop=[delegate extractionShouldStopForUnarchiver:self];
+	if ([delegate respondsToSelector:@selector(extractionShouldStopForUnarchiver:)]) {
+		shouldstop=[delegate extractionShouldStopForUnarchiver:self];
+	}
+	return shouldstop;
 }
 
 @end
@@ -702,8 +720,6 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 
 
 @implementation NSObject (XADUnarchiverDelegate)
-
--(void)unarchiverNeedsPassword:(XADUnarchiver *)unarchiver {}
 
 -(NSString *)unarchiver:(XADUnarchiver *)unarchiver pathForExtractingEntryWithDictionary:(NSDictionary *)dict { return nil; }
 
@@ -718,12 +734,6 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 	}
 	else return YES;
 }
-
--(void)unarchiver:(XADUnarchiver *)unarchiver willExtractEntryWithDictionary:(NSDictionary *)dict to:(NSString *)path {}
--(void)unarchiver:(XADUnarchiver *)unarchiver didExtractEntryWithDictionary:(NSDictionary *)dict to:(NSString *)path error:(XADError)error {}
-
--(BOOL)unarchiver:(XADUnarchiver *)unarchiver shouldCreateDirectory:(NSString *)directory { return YES; }
--(BOOL)unarchiver:(XADUnarchiver *)unarchiver shouldDeleteFileAndCreateDirectory:(NSString *)directory { return NO; }
 
 -(BOOL)unarchiver:(XADUnarchiver *)unarchiver shouldExtractArchiveEntryWithDictionary:(NSDictionary *)dict to:(NSString *)path { return NO; }
 -(void)unarchiver:(XADUnarchiver *)unarchiver willExtractArchiveEntryWithDictionary:(NSDictionary *)dict withUnarchiver:(XADUnarchiver *)subunarchiver to:(NSString *)path {}
@@ -742,12 +752,6 @@ outputTarget:(id)target selector:(SEL)selector argument:(id)argument
 	}
 	else return link.string;
 }
-
--(BOOL)extractionShouldStopForUnarchiver:(XADUnarchiver *)unarchiver { return NO; }
--(void)unarchiver:(XADUnarchiver *)unarchiver extractionProgressForEntryWithDictionary:(NSDictionary *)dict
-fileFraction:(double)fileprogress estimatedTotalFraction:(double)totalprogress {}
-
--(void)unarchiver:(XADUnarchiver *)unarchiver findsFileInterestingForReason:(NSString *)reason {}
 
 @end
 

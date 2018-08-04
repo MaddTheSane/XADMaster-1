@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 }
 
 +(nullable instancetype)unarchiverForArchiveParser:(XADArchiveParser *)archiveparser;
-+(nullable instancetype)unarchiverForPath:(NSString *)path NS_SWIFT_UNAVAILABLE("Call may throw exceptions, use init(for:error:) instead");
++(nullable instancetype)unarchiverForPath:(NSString *)path NS_SWIFT_UNAVAILABLE("Call may throw exceptions, use `init(forPath:) throws` instead");
 +(nullable instancetype)unarchiverForPath:(NSString *)path error:(nullable XADError *)errorptr;
 +(nullable instancetype)unarchiverForPath:(NSString *)path nserror:(NSError *_Nullable __autoreleasing *_Nullable)errorptr;
 
