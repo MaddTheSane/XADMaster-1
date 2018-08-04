@@ -33,7 +33,16 @@
 
 +(CFStringEncoding)CFStringEncodingForEncodingName:(NSString *)encodingname
 {
-	return CFStringConvertNSStringEncodingToEncoding([self encodingForEncodingName:encodingname]);
+	if([encodingname isKindOfClass:[NSNumber class]])
+	{
+		// If the encodingname is actually an NSNumber, just unpack it and convert.
+		return CFStringConvertNSStringEncodingToEncoding(((NSNumber *)encodingname).unsignedIntegerValue);
+	}
+	else
+	{
+		// Look up the encoding number for the name.
+		return CFStringConvertIANACharSetNameToEncoding((CFStringRef)encodingname);
+	}
 }
 
 +(BOOL)canDecodeData:(NSData *)data encodingName:(NSString *)encoding
