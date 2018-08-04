@@ -670,7 +670,7 @@ separators:(const char *)pathseparators
 {
 	if((self=[super init]))
 	{
-		string=pathstring;
+		string=[pathstring copy];
 	}
 	return self;
 }
@@ -679,7 +679,7 @@ separators:(const char *)pathseparators
 {
 	if((self=[super initWithParent:parentpath]))
 	{
-		string=pathstring;
+		string=[pathstring copy];
 	}
 	return self;
 }

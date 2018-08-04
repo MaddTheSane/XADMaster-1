@@ -206,10 +206,8 @@
 	[fh seekToFileOffset:[self offsetForVolume:centraldirstartdisk offset:centraloffset]];
 
 	for(int i=0;i<numentries;i++)
-	{
+	@autoreleasepool {
 		if(!self.shouldKeepParsing) break;
-
-		NSAutoreleasePool *pool=[NSAutoreleasePool new];
 
 		// Read central directory record.
 		uint32_t centralid=[fh readID];
@@ -318,8 +316,6 @@
 		else [self setObject:@YES forPropertyKey:XADIsCorruptedKey];
 
 		[fh seekToFileOffset:next];
-
-		[pool release];
 	}
 }
 
