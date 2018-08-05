@@ -3,10 +3,13 @@
 
 #if defined(USE_COMMON_CRYPTO) && USE_COMMON_CRYPTO
 #include <CommonCrypto/CommonDigest.h>
+//TODO: implement
+//#include <CommonCrypto/CommonCryptor.h>
 typedef CC_SHA1_CTX XADSHA1;
 #define XADSHA1_Init CC_SHA1_Init
 #define XADSHA1_Final CC_SHA1_Final
 #define XADSHA1_Update CC_SHA1_Update
+#define XADSHA1_DIGEST_LENGTH CC_SHA1_DIGEST_LENGTH
 #define XADSHA1_Update_WithRARBug CC_SHA1_Update_WithRARBug
 #else
 #include "Crypto/sha.h"
@@ -14,6 +17,7 @@ typedef SHA_CTX XADSHA1;
 #define XADSHA1_Init SHA1_Init
 #define XADSHA1_Final SHA1_Final
 #define XADSHA1_Update SHA1_Update
+#define XADSHA1_DIGEST_LENGTH SHA1_DIGEST_LENGTH
 #define XADSHA1_Update_WithRARBug SHA1_Update_WithRARBug
 #endif
 
@@ -55,13 +59,13 @@ typedef SHA_CTX XADSHA1;
 		if(i%0x4000==0)
 		{
 			XADSHA1 tmpsha=sha;
-			uint8_t digest[20];
+			uint8_t digest[XADSHA1_DIGEST_LENGTH];
 			XADSHA1_Final(digest,&tmpsha);
 			keybuf[i/0x4000]=digest[19];
 		}
 	}
 
-	uint8_t digest[20];
+	uint8_t digest[XADSHA1_DIGEST_LENGTH];
 	XADSHA1_Final(digest,&sha);
 
 	for(int i=0;i<16;i++) keybuf[i+16]=digest[i^3];
