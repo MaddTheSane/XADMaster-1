@@ -812,20 +812,6 @@ resourceFork:(XADResourceFork *)fork name:(NSString *)name propertiesToAdd:(NSMu
 
 // Internal functions
 
-static NSComparisonResult XADVolumeSort(id entry1,id entry2,void *extptr)
-{
-	NSString *str1=entry1;
-	NSString *str2=entry2;
-	NSString *firstext=(NSString *)extptr;
-	BOOL isfirst1=firstext&&[str1 rangeOfString:firstext options:NSAnchoredSearch|NSCaseInsensitiveSearch|NSBackwardsSearch].location!=NSNotFound;
-	BOOL isfirst2=firstext&&[str2 rangeOfString:firstext options:NSAnchoredSearch|NSCaseInsensitiveSearch|NSBackwardsSearch].location!=NSNotFound;
-
-	if(isfirst1&&!isfirst2) return NSOrderedAscending;
-	else if(!isfirst1&&isfirst2) return NSOrderedDescending;
-//	else return [str1 compare:str2 options:NSCaseInsensitiveSearch|NSNumericSearch];
-	else return [str1 compare:str2 options:NSCaseInsensitiveSearch];
-}
-
 +(NSArray *)scanForVolumesWithFilename:(NSString *)filename regex:(XADRegex *)regex
 {
 	return [self scanForVolumesWithFilename:filename regex:regex firstFileExtension:nil];
@@ -857,7 +843,17 @@ regex:(XADRegex *)regex firstFileExtension:(NSString *)firstext
 		if([regex matchesString:filename]) [volumes addObject:filename];
 	}
 
-	[volumes sortUsingFunction:XADVolumeSort context:firstext];
+	[volumes sortUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+		NSString *str1=obj1;
+		NSString *str2=obj2;
+		BOOL isfirst1=firstext&&[str1 rangeOfString:firstext options:NSAnchoredSearch|NSCaseInsensitiveSearch|NSBackwardsSearch].location!=NSNotFound;
+		BOOL isfirst2=firstext&&[str2 rangeOfString:firstext options:NSAnchoredSearch|NSCaseInsensitiveSearch|NSBackwardsSearch].location!=NSNotFound;
+		
+		if(isfirst1&&!isfirst2) return NSOrderedAscending;
+		else if(!isfirst1&&isfirst2) return NSOrderedDescending;
+		//	else return [str1 compare:str2 options:NSCaseInsensitiveSearch|NSNumericSearch];
+		else return [str1 compare:str2 options:NSCaseInsensitiveSearch];
+	}];
 
 	return volumes;
 }
