@@ -2120,29 +2120,35 @@
 		551BADCB1EB032B500EAF64E /* libbz2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BBCC54C0EE73B7F006C3AE2 /* libbz2.tbd */; };
 		551BADCD1EB032B500EAF64E /* UniversalDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B34AA8411C30BC100396C26 /* UniversalDetector.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		551BADD31EB0336300EAF64E /* XADPlatformiOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B83727C15CEA27000B0DC9D /* XADPlatformiOS.m */; };
-		551FC04321120AE500FC1109 /* XADHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FC04221120AE500FC1109 /* XADHandle.swift */; };
-		551FC04421120AE500FC1109 /* XADHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FC04221120AE500FC1109 /* XADHandle.swift */; };
 		5547F4771FBFBD01005D6DEF /* CSSegmentedHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B8983311CDE020500D52A2A /* CSSegmentedHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5547F4791FBFBD06005D6DEF /* CSSegmentedHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B8983311CDE020500D52A2A /* CSSegmentedHandle.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		55541F6C1EA7EBC5001A6927 /* XADUnarchiverSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6B1EA7EBC5001A6927 /* XADUnarchiverSwift.swift */; };
-		55541F6E1EA7EF90001A6927 /* XADPlatformSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6D1EA7EF90001A6927 /* XADPlatformSwift.swift */; };
-		55541F701EA7F339001A6927 /* XADStringSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6F1EA7F339001A6927 /* XADStringSwift.swift */; };
-		55541F721EA7FBC3001A6927 /* XADArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F711EA7FBC3001A6927 /* XADArchive.swift */; };
-		55541F751EA91801001A6927 /* XADMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* XADMaster.framework */; };
-		55541F771EA91BE1001A6927 /* XADSimpleUnarchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F761EA91BE0001A6927 /* XADSimpleUnarchiver.swift */; };
-		555EF0741EA7DB1F000CAE58 /* XADMasterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 555EF0721EA7DB1F000CAE58 /* XADMasterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		555EF07C1EA7DB57000CAE58 /* XADArchiveParserSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555EF07B1EA7DB57000CAE58 /* XADArchiveParserSwift.swift */; };
+		554B4AAA21181D67002B3BAE /* XADArchiveParserSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555EF07B1EA7DB57000CAE58 /* XADArchiveParserSwift.swift */; };
+		554B4AAB21181D67002B3BAE /* XADUnarchiverSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6B1EA7EBC5001A6927 /* XADUnarchiverSwift.swift */; };
+		554B4AAC21181D67002B3BAE /* XADPlatformSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6D1EA7EF90001A6927 /* XADPlatformSwift.swift */; };
+		554B4AAD21181D67002B3BAE /* XADStringSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6F1EA7F339001A6927 /* XADStringSwift.swift */; };
+		554B4AAE21181D67002B3BAE /* XADArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F711EA7FBC3001A6927 /* XADArchive.swift */; };
+		554B4AAF21181D67002B3BAE /* XADSimpleUnarchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F761EA91BE0001A6927 /* XADSimpleUnarchiver.swift */; };
+		554B4AB021181D67002B3BAE /* XADHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FC04221120AE500FC1109 /* XADHandle.swift */; };
+		554B4AB121181D68002B3BAE /* XADArchiveParserSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555EF07B1EA7DB57000CAE58 /* XADArchiveParserSwift.swift */; };
+		554B4AB221181D68002B3BAE /* XADUnarchiverSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6B1EA7EBC5001A6927 /* XADUnarchiverSwift.swift */; };
+		554B4AB321181D68002B3BAE /* XADPlatformSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6D1EA7EF90001A6927 /* XADPlatformSwift.swift */; };
+		554B4AB421181D68002B3BAE /* XADStringSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6F1EA7F339001A6927 /* XADStringSwift.swift */; };
+		554B4AB521181D68002B3BAE /* XADArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F711EA7FBC3001A6927 /* XADArchive.swift */; };
+		554B4AB621181D68002B3BAE /* XADSimpleUnarchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F761EA91BE0001A6927 /* XADSimpleUnarchiver.swift */; };
+		554B4AB721181D68002B3BAE /* XADHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FC04221120AE500FC1109 /* XADHandle.swift */; };
+		554B4AC121187413002B3BAE /* XADMaster-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 559B9CCF1A13F443006BDB74 /* XADMaster-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		554B4AC221187413002B3BAE /* XADMaster-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 559B9CCF1A13F443006BDB74 /* XADMaster-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		554B4AC321187525002B3BAE /* XADArchiveParserSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555EF07B1EA7DB57000CAE58 /* XADArchiveParserSwift.swift */; };
+		554B4AC421187525002B3BAE /* XADStringSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6F1EA7F339001A6927 /* XADStringSwift.swift */; };
+		554B4AC521187525002B3BAE /* XADUnarchiverSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6B1EA7EBC5001A6927 /* XADUnarchiverSwift.swift */; };
+		554B4AC621187525002B3BAE /* XADSimpleUnarchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F761EA91BE0001A6927 /* XADSimpleUnarchiver.swift */; };
+		554B4AC721187525002B3BAE /* XADPlatformSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6D1EA7EF90001A6927 /* XADPlatformSwift.swift */; };
+		554B4AC821187525002B3BAE /* XADArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F711EA7FBC3001A6927 /* XADArchive.swift */; };
+		554B4AC921187525002B3BAE /* XADHandle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 551FC04221120AE500FC1109 /* XADHandle.swift */; };
+		554B4ACA21187573002B3BAE /* XADMaster-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 559B9CCF1A13F443006BDB74 /* XADMaster-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		557C6A921FCB597700936524 /* XADErrors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557C6A961FCB597700936524 /* XADErrors.strings */; };
 		557C6A931FCB597700936524 /* XADErrors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557C6A961FCB597700936524 /* XADErrors.strings */; };
 		557C6A941FCB597700936524 /* XADErrors.strings in Resources */ = {isa = PBXBuildFile; fileRef = 557C6A961FCB597700936524 /* XADErrors.strings */; };
-		5591220C1EB3D07D007CF99D /* XADMasterSwift.h in Headers */ = {isa = PBXBuildFile; fileRef = 555EF0721EA7DB1F000CAE58 /* XADMasterSwift.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5591220E1EB3D07D007CF99D /* XADPlatformSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6D1EA7EF90001A6927 /* XADPlatformSwift.swift */; };
-		5591220F1EB3D07D007CF99D /* XADArchiveParserSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 555EF07B1EA7DB57000CAE58 /* XADArchiveParserSwift.swift */; };
-		559122111EB3D07D007CF99D /* XADSimpleUnarchiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F761EA91BE0001A6927 /* XADSimpleUnarchiver.swift */; settings = {COMPILER_FLAGS = "-fobjc-arc"; }; };
-		559122121EB3D07D007CF99D /* XADUnarchiverSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6B1EA7EBC5001A6927 /* XADUnarchiverSwift.swift */; };
-		559122131EB3D07D007CF99D /* XADArchive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F711EA7FBC3001A6927 /* XADArchive.swift */; };
-		559122141EB3D07D007CF99D /* XADStringSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55541F6F1EA7F339001A6927 /* XADStringSwift.swift */; };
-		559122161EB3D07D007CF99D /* XADMaster.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DC2EF5B0486A6940098B216 /* XADMaster.framework */; };
 		55A2D4AA1FBFB2D000939897 /* ClangAnalyser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B4B51DD1C061E3100C1074D /* ClangAnalyser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55A2D4AB1FBFB2D000939897 /* ClangAnalyser.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B4B51DD1C061E3100C1074D /* ClangAnalyser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		55B3B2541DBCC51400ECC61D /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55B3B2531DBCC51400ECC61D /* Security.framework */; };
@@ -2309,20 +2315,6 @@
 			remoteInfo = XADMaster;
 		};
 		1BC893810ED6F462006B47FE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = XADMaster;
-		};
-		55541F731EA917FA001A6927 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
-			remoteInfo = XADMaster;
-		};
-		5591220A1EB3D07D007CF99D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
 			proxyType = 1;
@@ -2885,9 +2877,6 @@
 		55541F6F1EA7F339001A6927 /* XADStringSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XADStringSwift.swift; sourceTree = "<group>"; };
 		55541F711EA7FBC3001A6927 /* XADArchive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XADArchive.swift; sourceTree = "<group>"; };
 		55541F761EA91BE0001A6927 /* XADSimpleUnarchiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XADSimpleUnarchiver.swift; sourceTree = "<group>"; };
-		555EF0701EA7DB1F000CAE58 /* XADMasterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XADMasterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		555EF0721EA7DB1F000CAE58 /* XADMasterSwift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XADMasterSwift.h; sourceTree = "<group>"; };
-		555EF0731EA7DB1F000CAE58 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		555EF07B1EA7DB57000CAE58 /* XADArchiveParserSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XADArchiveParserSwift.swift; sourceTree = "<group>"; };
 		557C6A951FCB597700936524 /* en */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/XADErrors.strings; sourceTree = "<group>"; };
 		557C6A971FCB59C500936524 /* de */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/XADErrors.strings; sourceTree = "<group>"; };
@@ -2911,7 +2900,6 @@
 		557C6AA91FCB5AC200936524 /* ja */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/XADErrors.strings; sourceTree = "<group>"; };
 		557EA8751DB1C37C00A5AE04 /* XAD-simple.exp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.exports; path = "XAD-simple.exp"; sourceTree = "<group>"; };
 		558A1EDB1E70E00C00C41ADA /* XAD.exp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.exports; path = XAD.exp; sourceTree = "<group>"; };
-		5591221B1EB3D07D007CF99D /* XADMasterSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XADMasterSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5591221D1EB3D21D007CF99D /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		559B9CCC1A13F30E006BDB74 /* XAD.modulemap */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.module-map"; path = XAD.modulemap; sourceTree = "<group>"; };
 		559B9CCF1A13F443006BDB74 /* XADMaster-umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XADMaster-umbrella.h"; sourceTree = "<group>"; };
@@ -3078,22 +3066,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		555EF06C1EA7DB1F000CAE58 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				55541F751EA91801001A6927 /* XADMaster.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		559122151EB3D07D007CF99D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				559122161EB3D07D007CF99D /* XADMaster.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8DC2EF560486A6940098B216 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -3128,9 +3100,7 @@
 				1B31CB9213C6423600ED119E /* XADTest6 */,
 				1B467B0115CD9A73001AB1DD /* libXADMaster.ios.a */,
 				5500A60F1D776ADB00321300 /* XADMaster.framework */,
-				555EF0701EA7DB1F000CAE58 /* XADMasterSwift.framework */,
 				551BADD11EB032B500EAF64E /* XADMaster.framework */,
-				5591221B1EB3D07D007CF99D /* XADMasterSwift.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3151,7 +3121,6 @@
 				1B91CBA911D803920081E40A /* Windows Sources */,
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
-				555EF0711EA7DB1F000CAE58 /* XADSimpleMasterSwift */,
 				0867D69AFE84028FC02AAC07 /* Frameworks */,
 				1BDDC79413DE3D2800A8C079 /* Man Pages */,
 				034768DFFF38A50411DB9C8B /* Products */,
@@ -3194,12 +3163,14 @@
 			children = (
 				1BBAB6760EC26AA6007FE6A2 /* XADArchiveParser.h */,
 				1BBAB6770EC26AA6007FE6A2 /* XADArchiveParser.m */,
+				555EF07B1EA7DB57000CAE58 /* XADArchiveParserSwift.swift */,
 				1BBEF8AE14D8A31700790E4B /* XADArchiveParserDescriptions.h */,
 				1BBEF8AF14D8A31700790E4B /* XADArchiveParserDescriptions.m */,
 				1B3FAD650EC5D4E8006D2F06 /* XADMacArchiveParser.h */,
 				1B3FAD660EC5D4E8006D2F06 /* XADMacArchiveParser.m */,
 				1B06D5B90DDA67E000D9C000 /* XADString.h */,
 				1B06D5BA0DDA67E000D9C000 /* XADString.m */,
+				55541F6F1EA7F339001A6927 /* XADStringSwift.swift */,
 				1B91D0AC11DFC0480081E40A /* XADStringCFString.m */,
 				1B91CF7211DCF4140081E40A /* XADStringWindows.m */,
 				1B91D11211E11A0F0081E40A /* XADStringICU.m */,
@@ -3211,9 +3182,12 @@
 				1B578C330DDBC8BF005B0F68 /* XADException.m */,
 				1B81DD440FFEB87A005C5B23 /* XADUnarchiver.h */,
 				1B81DD450FFEB87B005C5B23 /* XADUnarchiver.m */,
+				55541F6B1EA7EBC5001A6927 /* XADUnarchiverSwift.swift */,
 				1BDDC7EB13E0E78C00A8C079 /* XADSimpleUnarchiver.h */,
 				1BDDC7EC13E0E78C00A8C079 /* XADSimpleUnarchiver.m */,
+				55541F761EA91BE0001A6927 /* XADSimpleUnarchiver.swift */,
 				1BF3BA8F13EE08A300BE7400 /* XADPlatform.h */,
+				55541F6D1EA7EF90001A6927 /* XADPlatformSwift.swift */,
 				1B349EF011BACA2900396C26 /* XADPlatformMacOSX.m */,
 				1B349EF711BACA4F00396C26 /* XADPlatformWindows.m */,
 				1B349EF511BACA3C00396C26 /* XADPlatformLinux.m */,
@@ -3334,6 +3308,7 @@
 			children = (
 				1B3FAAEE0EC3859F006D2F06 /* CSHandle.h */,
 				1B3FAAEF0EC3859F006D2F06 /* CSHandle.m */,
+				551FC04221120AE500FC1109 /* XADHandle.swift */,
 				1B3FAAF00EC3859F006D2F06 /* CSSubHandle.h */,
 				1B3FAAF10EC3859F006D2F06 /* CSSubHandle.m */,
 				1B3FAAF40EC3859F006D2F06 /* CSFileHandle.h */,
@@ -3564,6 +3539,7 @@
 			children = (
 				1B5A7AF50A24CFD200B189EB /* XADArchive.h */,
 				1B5A80B50A27AA9900B189EB /* XADArchive.m */,
+				55541F711EA7FBC3001A6927 /* XADArchive.swift */,
 			);
 			name = Deprecated;
 			sourceTree = "<group>";
@@ -4090,23 +4066,6 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		555EF0711EA7DB1F000CAE58 /* XADSimpleMasterSwift */ = {
-			isa = PBXGroup;
-			children = (
-				555EF0721EA7DB1F000CAE58 /* XADMasterSwift.h */,
-				555EF0731EA7DB1F000CAE58 /* Info.plist */,
-				555EF07B1EA7DB57000CAE58 /* XADArchiveParserSwift.swift */,
-				55541F6B1EA7EBC5001A6927 /* XADUnarchiverSwift.swift */,
-				55541F6D1EA7EF90001A6927 /* XADPlatformSwift.swift */,
-				55541F6F1EA7F339001A6927 /* XADStringSwift.swift */,
-				55541F711EA7FBC3001A6927 /* XADArchive.swift */,
-				55541F761EA91BE0001A6927 /* XADSimpleUnarchiver.swift */,
-				551FC04221120AE500FC1109 /* XADHandle.swift */,
-			);
-			path = XADSimpleMasterSwift;
-			sourceTree = "<group>";
-			usesTabs = 1;
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -4380,6 +4339,7 @@
 				5500A46E1D776ADB00321300 /* LZW.h in Headers */,
 				5500A46F1D776ADB00321300 /* NSStringPrinting.h in Headers */,
 				5500A4701D776ADB00321300 /* NSDateXAD.h in Headers */,
+				554B4ACA21187573002B3BAE /* XADMaster-umbrella.h in Headers */,
 				5500A4711D776ADB00321300 /* privdefs.h in Headers */,
 				5500A4721D776ADB00321300 /* RARAudioDecoder.h in Headers */,
 				5500A4731D776ADB00321300 /* RARBug.h in Headers */,
@@ -4678,6 +4638,7 @@
 				551BACCE1EB032B500EAF64E /* VariantG.h in Headers */,
 				551BACCF1EB032B500EAF64E /* VariantH.h in Headers */,
 				551BACD01EB032B500EAF64E /* VariantI.h in Headers */,
+				554B4AC221187413002B3BAE /* XADMaster-umbrella.h in Headers */,
 				551BACD11EB032B500EAF64E /* XADRARInputHandle.h in Headers */,
 				551BACD21EB032B500EAF64E /* Realloc.h in Headers */,
 				551BACD31EB032B500EAF64E /* XADCrunchParser.h in Headers */,
@@ -4707,22 +4668,6 @@
 				551BACEB1EB032B500EAF64E /* XADStuffItDESHandle.h in Headers */,
 				551BACEC1EB032B500EAF64E /* XADWARCParser.h in Headers */,
 				551BACED1EB032B500EAF64E /* XADPMArc1Handle.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		555EF06D1EA7DB1F000CAE58 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				555EF0741EA7DB1F000CAE58 /* XADMasterSwift.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5591220B1EB3D07D007CF99D /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5591220C1EB3D07D007CF99D /* XADMasterSwift.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4922,6 +4867,7 @@
 				1BF0EEED14031861007B8CF8 /* VariantG.h in Headers */,
 				1BF0EEF614031861007B8CF8 /* VariantH.h in Headers */,
 				1BF0EEFF14031861007B8CF8 /* VariantI.h in Headers */,
+				554B4AC121187413002B3BAE /* XADMaster-umbrella.h in Headers */,
 				1B4E97451426149800640F59 /* XADRARInputHandle.h in Headers */,
 				1B78A34C1431339100E4AB87 /* Realloc.h in Headers */,
 				1B06CD13145CFF2A003907F9 /* XADCrunchParser.h in Headers */,
@@ -5219,44 +5165,6 @@
 			productReference = 551BADD11EB032B500EAF64E /* XADMaster.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		555EF06F1EA7DB1F000CAE58 /* XADMasterSwift */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 555EF0771EA7DB1F000CAE58 /* Build configuration list for PBXNativeTarget "XADMasterSwift" */;
-			buildPhases = (
-				555EF06D1EA7DB1F000CAE58 /* Headers */,
-				555EF06B1EA7DB1F000CAE58 /* Sources */,
-				555EF06C1EA7DB1F000CAE58 /* Frameworks */,
-				555EF06E1EA7DB1F000CAE58 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				55541F741EA917FA001A6927 /* PBXTargetDependency */,
-			);
-			name = XADMasterSwift;
-			productName = XADSimpleMasterSwift;
-			productReference = 555EF0701EA7DB1F000CAE58 /* XADMasterSwift.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		559122081EB3D07D007CF99D /* XADMasterSwift-iOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 559122181EB3D07D007CF99D /* Build configuration list for PBXNativeTarget "XADMasterSwift-iOS" */;
-			buildPhases = (
-				5591220B1EB3D07D007CF99D /* Headers */,
-				5591220D1EB3D07D007CF99D /* Sources */,
-				559122151EB3D07D007CF99D /* Frameworks */,
-				559122171EB3D07D007CF99D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				559122091EB3D07D007CF99D /* PBXTargetDependency */,
-			);
-			name = "XADMasterSwift-iOS";
-			productName = XADSimpleMasterSwift;
-			productReference = 5591221B1EB3D07D007CF99D /* XADMasterSwift.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		8DC2EF4F0486A6940098B216 /* XADMaster */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "XADMaster" */;
@@ -5283,13 +5191,6 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0930;
-				TargetAttributes = {
-					555EF06F1EA7DB1F000CAE58 = {
-						CreatedOnToolsVersion = 8.3.1;
-						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
-					};
-				};
 			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "XADMaster" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -5325,8 +5226,6 @@
 				8DC2EF4F0486A6940098B216 /* XADMaster */,
 				551BAC111EB032B500EAF64E /* XADMaster-iOS */,
 				5500A44A1D776ADB00321300 /* XADMaster-simple */,
-				555EF06F1EA7DB1F000CAE58 /* XADMasterSwift */,
-				559122081EB3D07D007CF99D /* XADMasterSwift-iOS */,
 				1B34A97411C2FD0500396C26 /* libXADMaster.a */,
 				1B91CCBE11D97E7C0081E40A /* libXADMaster.win.a */,
 				1B4679F715CD9A73001AB1DD /* libXADMaster.ios.a */,
@@ -5359,20 +5258,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				557C6A931FCB597700936524 /* XADErrors.strings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		555EF06E1EA7DB1F000CAE58 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		559122171EB3D07D007CF99D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6175,9 +6060,11 @@
 			files = (
 				5500A52D1D776ADB00321300 /* all.c in Sources */,
 				5500A52E1D776ADB00321300 /* clients.c in Sources */,
+				554B4AC721187525002B3BAE /* XADPlatformSwift.swift in Sources */,
 				5500A52F1D776ADB00321300 /* emulation.c in Sources */,
 				5500A5301D776ADB00321300 /* init.c in Sources */,
 				5500A5311D776ADB00321300 /* XADGzipParser.m in Sources */,
+				554B4AC921187525002B3BAE /* XADHandle.swift in Sources */,
 				5500A5321D776ADB00321300 /* XADArchiveParser.m in Sources */,
 				5500A5331D776ADB00321300 /* XADString.m in Sources */,
 				5500A5341D776ADB00321300 /* CSHandle.m in Sources */,
@@ -6187,6 +6074,7 @@
 				5500A5381D776ADB00321300 /* CSMemoryHandle.m in Sources */,
 				5500A5391D776ADB00321300 /* CSStreamHandle.m in Sources */,
 				5500A53A1D776ADB00321300 /* CSByteStreamHandle.m in Sources */,
+				554B4AC621187525002B3BAE /* XADSimpleUnarchiver.swift in Sources */,
 				5500A53B1D776ADB00321300 /* CSZlibHandle.m in Sources */,
 				5500A53C1D776ADB00321300 /* XADException.m in Sources */,
 				5500A53D1D776ADB00321300 /* XADMacArchiveParser.m in Sources */,
@@ -6213,6 +6101,7 @@
 				5500A5611D776ADB00321300 /* XADBzip2Parser.m in Sources */,
 				5500A5631D776ADB00321300 /* XADSkipHandle.m in Sources */,
 				5500A5641D776ADB00321300 /* XADRegex.m in Sources */,
+				554B4AC421187525002B3BAE /* XADStringSwift.swift in Sources */,
 				5500A5651D776ADB00321300 /* XAD7ZipParser.m in Sources */,
 				5500A6171D776F4F00321300 /* XADLZHParser.m in Sources */,
 				5500A5661D776ADB00321300 /* XADLZMAHandle.m in Sources */,
@@ -6234,6 +6123,7 @@
 				551261081FC0124400C0FCAD /* CSSegmentedHandle.m in Sources */,
 				5500A5841D776ADB00321300 /* NumberParsing.m in Sources */,
 				5500A5851D776ADB00321300 /* XADChecksumHandle.m in Sources */,
+				554B4AC321187525002B3BAE /* XADArchiveParserSwift.swift in Sources */,
 				5500A5881D776ADB00321300 /* XADZipSFXParsers.m in Sources */,
 				5500A5891D776ADB00321300 /* Progress.m in Sources */,
 				5500A58A1D776ADB00321300 /* CRC.m in Sources */,
@@ -6241,6 +6131,7 @@
 				5500A58C1D776ADB00321300 /* XADRAR20CryptHandle.m in Sources */,
 				5500A58D1D776ADB00321300 /* XADPath.m in Sources */,
 				5500A58F1D776ADB00321300 /* XADXORHandle.m in Sources */,
+				554B4AC521187525002B3BAE /* XADUnarchiverSwift.swift in Sources */,
 				551261041FC0120E00C0FCAD /* CSMultiFileHandle.m in Sources */,
 				5500A5991D776ADB00321300 /* XADLZMA2Handle.m in Sources */,
 				5500A59A1D776ADB00321300 /* Lzma2Dec.c in Sources */,
@@ -6262,6 +6153,7 @@
 				5500A5B61D776ADB00321300 /* XADRAR15Handle.m in Sources */,
 				5500A5B71D776ADB00321300 /* XADRAR15CryptHandle.m in Sources */,
 				5500A5B81D776ADB00321300 /* XADRAR13CryptHandle.m in Sources */,
+				554B4AC821187525002B3BAE /* XADArchive.swift in Sources */,
 				5500A61C1D776FC400321300 /* XADLZHDynamicHandle.m in Sources */,
 				5500A5BA1D776ADB00321300 /* XADStringCFString.m in Sources */,
 				5500A5BC1D776ADB00321300 /* XADXORSumHandle.m in Sources */,
@@ -6316,6 +6208,7 @@
 			files = (
 				551BACF01EB032B500EAF64E /* all.c in Sources */,
 				551BACF11EB032B500EAF64E /* clients.c in Sources */,
+				554B4AAD21181D67002B3BAE /* XADStringSwift.swift in Sources */,
 				551BACF21EB032B500EAF64E /* emulation.c in Sources */,
 				551BACF31EB032B500EAF64E /* init.c in Sources */,
 				551BACF41EB032B500EAF64E /* XADGzipParser.m in Sources */,
@@ -6332,6 +6225,7 @@
 				551BACFF1EB032B500EAF64E /* XADException.m in Sources */,
 				551BAD001EB032B500EAF64E /* XADMacArchiveParser.m in Sources */,
 				551BAD011EB032B500EAF64E /* NSDateXAD.m in Sources */,
+				554B4AAC21181D67002B3BAE /* XADPlatformSwift.swift in Sources */,
 				551BAD021EB032B500EAF64E /* XADZipParser.m in Sources */,
 				551BAD031EB032B500EAF64E /* XADZipImplodeHandle.m in Sources */,
 				551BAD041EB032B500EAF64E /* XADZipShrinkHandle.m in Sources */,
@@ -6339,6 +6233,7 @@
 				551BAD061EB032B500EAF64E /* XADWinZipAESHandle.m in Sources */,
 				551BAD071EB032B500EAF64E /* XADTarParser.m in Sources */,
 				551BAD081EB032B500EAF64E /* XADCpioParser.m in Sources */,
+				554B4AAA21181D67002B3BAE /* XADArchiveParserSwift.swift in Sources */,
 				551BAD091EB032B500EAF64E /* XADLibXADParser.m in Sources */,
 				551BAD0A1EB032B500EAF64E /* XADPrefixCode.m in Sources */,
 				551BAD0B1EB032B500EAF64E /* XADStuffIt5Parser.m in Sources */,
@@ -6383,12 +6278,14 @@
 				551BADD31EB0336300EAF64E /* XADPlatformiOS.m in Sources */,
 				551BAD301EB032B500EAF64E /* XADXZParser.m in Sources */,
 				551BAD311EB032B500EAF64E /* XADXARParser.m in Sources */,
+				554B4AB021181D67002B3BAE /* XADHandle.swift in Sources */,
 				551BAD321EB032B500EAF64E /* XADLZMAAloneParser.m in Sources */,
 				551BAD331EB032B500EAF64E /* XADCRCSuffixHandle.m in Sources */,
 				551BAD341EB032B500EAF64E /* XADCRCHandle.m in Sources */,
 				551BAD351EB032B500EAF64E /* RARBug.c in Sources */,
 				551BAD361EB032B500EAF64E /* XADStuffItXParser.m in Sources */,
 				551BAD371EB032B500EAF64E /* XADStuffItXCyanideHandle.m in Sources */,
+				554B4AAB21181D67002B3BAE /* XADUnarchiverSwift.swift in Sources */,
 				551BAD381EB032B500EAF64E /* CarrylessRangeCoder.m in Sources */,
 				551BAD391EB032B500EAF64E /* BWT.c in Sources */,
 				551BAD3A1EB032B500EAF64E /* XADStuffItXBlockHandle.m in Sources */,
@@ -6411,6 +6308,7 @@
 				551BAD4B1EB032B500EAF64E /* XADZipSFXParsers.m in Sources */,
 				551BAD4C1EB032B500EAF64E /* Progress.m in Sources */,
 				551BAD4D1EB032B500EAF64E /* CRC.m in Sources */,
+				554B4AAE21181D67002B3BAE /* XADArchive.swift in Sources */,
 				551BAD4E1EB032B500EAF64E /* XADArchive.m in Sources */,
 				551BAD4F1EB032B500EAF64E /* XADRAR20CryptHandle.m in Sources */,
 				551BAD501EB032B500EAF64E /* XADPath.m in Sources */,
@@ -6487,6 +6385,7 @@
 				551BAD971EB032B500EAF64E /* XADArParser.m in Sources */,
 				551BAD981EB032B500EAF64E /* XADSWFGeometry.m in Sources */,
 				551BAD991EB032B500EAF64E /* XADSWFTagParser.m in Sources */,
+				554B4AAF21181D67002B3BAE /* XADSimpleUnarchiver.swift in Sources */,
 				551BAD9A1EB032B500EAF64E /* XADSWFParser.m in Sources */,
 				551BAD9B1EB032B500EAF64E /* XADPNGWriter.m in Sources */,
 				551BAD9C1EB032B500EAF64E /* XADSimpleUnarchiver.m in Sources */,
@@ -6535,40 +6434,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		555EF06B1EA7DB1F000CAE58 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				55541F6E1EA7EF90001A6927 /* XADPlatformSwift.swift in Sources */,
-				555EF07C1EA7DB57000CAE58 /* XADArchiveParserSwift.swift in Sources */,
-				55541F771EA91BE1001A6927 /* XADSimpleUnarchiver.swift in Sources */,
-				551FC04321120AE500FC1109 /* XADHandle.swift in Sources */,
-				55541F6C1EA7EBC5001A6927 /* XADUnarchiverSwift.swift in Sources */,
-				55541F721EA7FBC3001A6927 /* XADArchive.swift in Sources */,
-				55541F701EA7F339001A6927 /* XADStringSwift.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5591220D1EB3D07D007CF99D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5591220E1EB3D07D007CF99D /* XADPlatformSwift.swift in Sources */,
-				5591220F1EB3D07D007CF99D /* XADArchiveParserSwift.swift in Sources */,
-				559122111EB3D07D007CF99D /* XADSimpleUnarchiver.swift in Sources */,
-				551FC04421120AE500FC1109 /* XADHandle.swift in Sources */,
-				559122121EB3D07D007CF99D /* XADUnarchiverSwift.swift in Sources */,
-				559122131EB3D07D007CF99D /* XADArchive.swift in Sources */,
-				559122141EB3D07D007CF99D /* XADStringSwift.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				1B06D5570DDA624400D9C000 /* all.c in Sources */,
 				1B06D5580DDA625100D9C000 /* clients.c in Sources */,
+				554B4AB421181D68002B3BAE /* XADStringSwift.swift in Sources */,
 				1B06D5590DDA625700D9C000 /* emulation.c in Sources */,
 				1B06D55A0DDA626700D9C000 /* init.c in Sources */,
 				1B578C590DDCFFD0005B0F68 /* XADGzipParser.m in Sources */,
@@ -6585,6 +6457,7 @@
 				1B3FAB2C0EC3D5E7006D2F06 /* XADException.m in Sources */,
 				1B3FAD680EC5D4E8006D2F06 /* XADMacArchiveParser.m in Sources */,
 				1B3FAD810EC6826E006D2F06 /* NSDateXAD.m in Sources */,
+				554B4AB321181D68002B3BAE /* XADPlatformSwift.swift in Sources */,
 				1BC882B20ECA4D67006B47FE /* XADZipParser.m in Sources */,
 				1BC884820ECCCE41006B47FE /* XADZipImplodeHandle.m in Sources */,
 				1BC884860ECCCE69006B47FE /* XADZipShrinkHandle.m in Sources */,
@@ -6592,6 +6465,7 @@
 				1BC885CE0ECD11CF006B47FE /* XADWinZipAESHandle.m in Sources */,
 				1BC889680ECF9AD5006B47FE /* XADTarParser.m in Sources */,
 				1BC8896C0ECF9AE2006B47FE /* XADCpioParser.m in Sources */,
+				554B4AB121181D68002B3BAE /* XADArchiveParserSwift.swift in Sources */,
 				1BC889A90ECFC556006B47FE /* XADLibXADParser.m in Sources */,
 				1BC88A280ED06D76006B47FE /* XADPrefixCode.m in Sources */,
 				1BC88BF20ED1D95B006B47FE /* XADStuffIt5Parser.m in Sources */,
@@ -6636,12 +6510,14 @@
 				1BCD64250EF6CA0500D86C43 /* XADLZMAAloneParser.m in Sources */,
 				1BCD642A0EF6CA3F00D86C43 /* XADCRCSuffixHandle.m in Sources */,
 				1BCD642C0EF6CA3F00D86C43 /* XADCRCHandle.m in Sources */,
+				554B4AB721181D68002B3BAE /* XADHandle.swift in Sources */,
 				1BCD65530EF8164900D86C43 /* RARBug.c in Sources */,
 				1BC9A7050F007A760094C7B5 /* XADStuffItXParser.m in Sources */,
 				1BC9A7090F007A910094C7B5 /* XADStuffItXCyanideHandle.m in Sources */,
 				1BC9A70D0F007AA20094C7B5 /* CarrylessRangeCoder.m in Sources */,
 				1BC9A7110F007AAF0094C7B5 /* BWT.c in Sources */,
 				1B880C280F09A23B0061CCBE /* XADStuffItXBlockHandle.m in Sources */,
+				554B4AB221181D68002B3BAE /* XADUnarchiverSwift.swift in Sources */,
 				1B880D040F0AAB700061CCBE /* XADPPMdParser.m in Sources */,
 				1B880D080F0AAB970061CCBE /* XADPPMdHandles.m in Sources */,
 				1B2A4A190F1D7E58009B5B89 /* StuffItXUtilities.m in Sources */,
@@ -6664,6 +6540,7 @@
 				1B216BBE0F8E9DED001207C9 /* XADArchive.m in Sources */,
 				1BA2650F0FC061E200279E95 /* XADRAR20CryptHandle.m in Sources */,
 				1BA266DF0FC78BF600279E95 /* XADPath.m in Sources */,
+				554B4AB521181D68002B3BAE /* XADArchive.swift in Sources */,
 				1B95B42F1010D906009FA09E /* XADARJParser.m in Sources */,
 				1B95B517101119A5009FA09E /* XADXORHandle.m in Sources */,
 				1B95B5B110112815009FA09E /* XADARJFastestHandle.m in Sources */,
@@ -6740,6 +6617,7 @@
 				1B31CB7413C288D700ED119E /* XADSWFTagParser.m in Sources */,
 				1B31CB7C13C2890700ED119E /* XADSWFParser.m in Sources */,
 				1B31CB8413C523A300ED119E /* XADPNGWriter.m in Sources */,
+				554B4AB621181D68002B3BAE /* XADSimpleUnarchiver.swift in Sources */,
 				1BDDC7F013E0E78C00A8C079 /* XADSimpleUnarchiver.m in Sources */,
 				1BF0EE2E13FF2FA3007B8CF8 /* ArithmeticDecoder.c in Sources */,
 				1BF0EE3413FF2FA3007B8CF8 /* Decompressor.c in Sources */,
@@ -6885,16 +6763,6 @@
 			isa = PBXTargetDependency;
 			target = 8DC2EF4F0486A6940098B216 /* XADMaster */;
 			targetProxy = 1BC893810ED6F462006B47FE /* PBXContainerItemProxy */;
-		};
-		55541F741EA917FA001A6927 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216 /* XADMaster */;
-			targetProxy = 55541F731EA917FA001A6927 /* PBXContainerItemProxy */;
-		};
-		559122091EB3D07D007CF99D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8DC2EF4F0486A6940098B216 /* XADMaster */;
-			targetProxy = 5591220A1EB3D07D007CF99D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -7187,7 +7055,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 4.0;
@@ -7830,7 +7698,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -7864,7 +7732,6 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MODULEMAP_FILE = XAD.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = de.dstoecker.xadmaster;
 				PRODUCT_NAME = XADMaster;
@@ -7898,7 +7765,6 @@
 				);
 				INFOPLIST_FILE = Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MODULEMAP_FILE = XAD.modulemap;
 				PRODUCT_BUNDLE_IDENTIFIER = de.dstoecker.xadmaster;
 				PRODUCT_NAME = XADMaster;
@@ -7983,128 +7849,6 @@
 				SUPPORTED_PLATFORMS = "appletvsimulator appletvos iphonesimulator iphoneos";
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				WRAPPER_EXTENSION = framework;
-			};
-			name = Release;
-		};
-		555EF0751EA7DB1F000CAE58 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = XADSimpleMasterSwift/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.XADMasterSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		555EF0761EA7DB1F000CAE58 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = XADSimpleMasterSwift/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.XADMasterSwift;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		559122191EB3D07D007CF99D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = XADSimpleMasterSwift/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.XADMasterSwift;
-				PRODUCT_NAME = XADMasterSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "appletvsimulator appletvos iphonesimulator iphoneos";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		5591221A1EB3D07D007CF99D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				COPY_PHASE_STRIP = NO;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_NS_ASSERTIONS = NO;
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = XADSimpleMasterSwift/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.9;
-				PRODUCT_BUNDLE_IDENTIFIER = com.github.maddthesane.XADMasterSwift;
-				PRODUCT_NAME = XADMasterSwift;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "appletvsimulator appletvos iphonesimulator iphoneos";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -8269,24 +8013,6 @@
 			buildConfigurations = (
 				551BADCF1EB032B500EAF64E /* Debug */,
 				551BADD01EB032B500EAF64E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		555EF0771EA7DB1F000CAE58 /* Build configuration list for PBXNativeTarget "XADMasterSwift" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				555EF0751EA7DB1F000CAE58 /* Debug */,
-				555EF0761EA7DB1F000CAE58 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		559122181EB3D07D007CF99D /* Build configuration list for PBXNativeTarget "XADMasterSwift-iOS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				559122191EB3D07D007CF99D /* Debug */,
-				5591221A1EB3D07D007CF99D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

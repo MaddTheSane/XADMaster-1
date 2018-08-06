@@ -7,9 +7,6 @@
 //
 
 import Foundation
-import XADMaster.Path
-import XADMaster.ArchiveParser
-import XADMaster.Exception
 
 extension XADPath {
 	@available(*, deprecated, renamed: "sanitizedPathString(with:)")

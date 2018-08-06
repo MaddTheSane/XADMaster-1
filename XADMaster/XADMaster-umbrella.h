@@ -34,6 +34,4 @@
 #import <XADMaster/XADSimpleUnarchiver.h>
 #import <XADMaster/XADSkipHandle.h>
 #import <XADMaster/XADString.h>
-#import <XADMaster/XADSWFGeometry.h>
-#import <XADMaster/XADSWFTagParser.h>
 #import <XADMaster/XADUnarchiver.h>

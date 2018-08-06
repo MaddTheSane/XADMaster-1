@@ -1,10 +1,12 @@
 framework module XADMaster [extern_c] {
-	umbrella header "xadmaster.h"
+	umbrella header "XADMaster-umbrella.h"
 	
-	export *
-	module * { export * }
+	module xadmaster {
+		header "xadmaster.h"
+		export *
+	}
 	
-	explicit module XADArchive {
+	module XADArchive {
 		requires objc
 		header "XADArchive.h"
 		export *
@@ -33,11 +35,21 @@ framework module XADMaster [extern_c] {
 		export *
 	}
 	
-	explicit module Handle {
+	module String {
+		requires objc
+		header "XADString.h"
+		export *
+	}
+	
+	explicit module ClangAnalyser {
+		requires objc
+		header "ClangAnalyser.h"
+		export *
+	}
+	
+	module Handle {
 		requires objc
 		header "CSHandle.h"
-		export *
-		
 		
 		explicit module Stream {
 			header "CSStreamHandle.h"
@@ -84,6 +96,11 @@ framework module XADMaster [extern_c] {
 			export *
 		}
 		
+		explicit module Segmented {
+			header "CSSegmentedHandle.h"
+			export *
+		}
+		
 		explicit module Skip {
 			header "XADSkipHandle.h"
 			export *
@@ -93,21 +110,23 @@ framework module XADMaster [extern_c] {
 			header "CSSubHandle.h"
 			export *
 		}
+		
+		export *
 	}
 	
-	explicit module Exception {
+	module Exception {
 		requires objc
 		header "XADException.h"
 		export *
 	}
 	
-	explicit module Path {
+	module Path {
 		requires objc
 		header "XADPath.h"
 		export *
 	}
 	
-	explicit module Platform {
+	module Platform {
 		requires objc
 		header "XADPlatform.h"
 		export *
@@ -119,7 +138,7 @@ framework module XADMaster [extern_c] {
 		export *
 	}
 	
-	explicit module ArchiveParser {
+	module ArchiveParser {
 		requires objc
 		header "XADArchiveParser.h"
 		module Descriptions {
@@ -129,14 +148,15 @@ framework module XADMaster [extern_c] {
 		export *
 	}
 	
-	explicit module Unarchiver {
+	module Unarchiver {
 		requires objc
 		header "XADUnarchiver.h"
-		export *
-		explicit module Simple {
+		
+		module Simple {
 			header "XADSimpleUnarchiver.h"
 			export *
 		}
+		export *
 	}
 	
 	explicit module ResourceFork {
@@ -150,4 +170,7 @@ framework module XADMaster [extern_c] {
 		header "CSInputBuffer.h"
 		export *
 	}
+	
+	export *
+	module * { export * }
 }

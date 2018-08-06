@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import XADMaster.Unarchiver
 
 extension XADUnarchiver {
 	@nonobjc public func parseAndUnarchive() throws {

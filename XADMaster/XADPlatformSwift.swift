@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import XADMaster.Exception
-import XADMaster.Platform
 
 extension XADPlatform {
 	@nonobjc public class func extractResourceForkEntry(with dict: [XADArchiveKeys : Any], unarchiver: XADUnarchiver, toPath destpath: String) throws {

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import XADMaster.XADString
 
 extension XADStringProtocol {
 	public func canDecode(with encoding: String.Encoding) -> Bool {

@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import XADMaster.Handle
 
 extension XADHandle {
 	public func readLine(with encoding: String.Encoding) -> String? {
