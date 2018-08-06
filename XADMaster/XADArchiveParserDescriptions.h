@@ -1,8 +1,10 @@
 #import "XADArchiveParser.h"
 
+NS_ASSUME_NONNULL_BEGIN
+
 @interface XADArchiveParser (Descriptions)
 
--(NSString *)descriptionOfValueInDictionary:(NSDictionary<XADArchiveKeys,id> *)dict key:(XADArchiveKeys)key;
+-(nullable NSString *)descriptionOfValueInDictionary:(NSDictionary<XADArchiveKeys,id> *)dict key:(XADArchiveKeys)key;
 -(NSString *)descriptionOfKey:(XADArchiveKeys)key;
 -(NSArray<XADArchiveKeys> *)descriptiveOrderingOfKeysInDictionary:(NSDictionary<XADArchiveKeys,id> *)dict;
 
@@ -25,3 +27,5 @@ NSString *XADHumanReadableArray(NSArray *array);
 NSString *XADHumanReadableDictionary(NSDictionary *dict);
 NSString *XADHumanReadableList(NSArray<NSString*> *labels,NSArray<NSString*> *values);
 NSString *XADIndentTextWithSpaces(NSString *text,NSInteger spaces);
+
+NS_ASSUME_NONNULL_END
