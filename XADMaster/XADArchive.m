@@ -428,7 +428,9 @@ NSString *const XADFinderFlags=@"XADFinderFlags";
 
 -(void)archiveParserNeedsPassword:(XADArchiveParser *)parser
 {
-	[delegate archiveNeedsPassword:self];
+	if ([delegate respondsToSelector:@selector(archiveNeedsPassword:)]) {
+		[delegate archiveNeedsPassword:self];
+	}
 }
 
 
@@ -1226,7 +1228,11 @@ fileFraction:(double)fileprogress estimatedTotalFraction:(double)totalprogress
 { return [delegate archive:arc creatingDirectoryDidFailForEntry:n]; }
 
 -(void)archiveNeedsPassword:(XADArchive *)arc
-{ [delegate archiveNeedsPassword:arc]; }
+{
+	if ([delegate respondsToSelector:@selector(archiveNeedsPassword:)]) {
+		[delegate archiveNeedsPassword:arc];
+	}
+}
 
 -(void)archive:(XADArchive *)arc extractionOfEntryWillStart:(NSInteger)n
 { [delegate archive:arc extractionOfEntryWillStart:n]; }
@@ -1348,8 +1354,6 @@ fileFraction:(double)fileprogress estimatedTotalFraction:(double)totalprogress
 -(XADAction)archive:(XADArchive *)archive entry:(NSInteger)n collidesWithDirectory:(NSString *)file newFilename:(NSString **)newname;
 -(XADAction)archive:(XADArchive *)archive creatingDirectoryDidFailForEntry:(NSInteger)n;
 
--(void)archiveNeedsPassword:(XADArchive *)archive;
-
 -(void)archive:(XADArchive *)archive extractionOfEntryWillStart:(NSInteger)n;
 -(void)archive:(XADArchive *)archive extractionProgressForEntry:(NSInteger)n bytes:(off_t)bytes of:(off_t)total;
 -(void)archive:(XADArchive *)archive extractionOfEntryDidSucceed:(NSInteger)n;
@@ -1391,8 +1395,6 @@ fileFraction:(double)fileprogress estimatedTotalFraction:(double)totalprogress
 -(XADAction)archive:(XADArchive *)archive entry:(NSInteger)n collidesWithFile:(NSString *)file newFilename:(NSString **)newname { return XADActionOverwrite; }
 -(XADAction)archive:(XADArchive *)archive entry:(NSInteger)n collidesWithDirectory:(NSString *)file newFilename:(NSString **)newname { return XADActionSkip; }
 -(XADAction)archive:(XADArchive *)archive creatingDirectoryDidFailForEntry:(NSInteger)n { return XADActionAbort; }
-
--(void)archiveNeedsPassword:(XADArchive *)archive {}
 
 -(void)archive:(XADArchive *)archive extractionOfEntryWillStart:(NSInteger)n {}
 -(void)archive:(XADArchive *)archive extractionProgressForEntry:(NSInteger)n bytes:(off_t)bytes of:(off_t)total {}
