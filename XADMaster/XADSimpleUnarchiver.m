@@ -144,10 +144,15 @@
 }
 
 -(BOOL)preservesPermissions { return unarchiver.preservesPermissions; }
--(void)setPreserevesPermissions:(BOOL)preserveflag
+-(void)setPreservesPermissions:(BOOL)preserveflag
 {
 	unarchiver.preservesPermissions = preserveflag;
 	subunarchiver.preservesPermissions = preserveflag;
+}
+
+-(void)setPreserevesPermissions:(BOOL)preserve
+{
+	self.preservesPermissions = preserve;
 }
 
 -(double)updateInterval { return unarchiver.updateInterval; }
