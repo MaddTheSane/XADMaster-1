@@ -123,9 +123,9 @@ name:(NSString *)name
 		NSData *namedata=[NSData dataWithBytes:namebuf length:namelength];
 
 		uint32_t compsize=[fh readUInt32LE];
-		int date=[fh readUInt16LE];
-		int time=[fh readUInt16LE];
-		int crc16=[fh readUInt16LE];
+		uint16_t date=[fh readUInt16LE];
+		uint16_t time=[fh readUInt16LE];
+		uint16_t crc16=[fh readUInt16LE];
 
 		uint32_t uncompsize;
 		if(method==1) uncompsize=compsize;

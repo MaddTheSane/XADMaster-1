@@ -156,10 +156,10 @@ static CSHandle *FindHandleForName(NSData *namedata,NSString *dirname,NSArray *d
 		{
 			uint32_t filesize=[fh readUInt32LE];
 			uint32_t folderoffs=[fh readUInt32LE];
-			int folderindex=[fh readUInt16LE];
-			int date=[fh readUInt16LE];
-			int time=[fh readUInt16LE];
-			int attribs=[fh readUInt16LE];
+			uint16_t folderindex=[fh readUInt16LE];
+			uint16_t date=[fh readUInt16LE];
+			uint16_t time=[fh readUInt16LE];
+			uint16_t attribs=[fh readUInt16LE];
 			NSData *namedata=ReadCString(fh);
 
 			if(folderindex==0xffff||folderindex==0xfffe)

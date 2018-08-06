@@ -1258,7 +1258,24 @@ resourceFork:(XADResourceFork *)fork name:(NSString *)name propertiesToAdd:(NSMu
 +(NSArray *)volumesForHandle:(CSHandle *)handle firstBytes:(NSData *)data
 name:(NSString *)name { return nil; }
 
--(void)parse {}
+-(void)parse {
+	// Override for Swift subclasses.
+	// ...if we had any.
+	/*
+	if ([self methodForSelector:@selector(parseWithError:)] != [XADArchiveParser instanceMethodForSelector:@selector(parseWithError:)]) {
+		NSError *tmpErr = nil;
+		if (![self parseWithError:&tmpErr]) {
+			if (shouldstop) {
+				return;
+			}
+			XADError errorToThrow = (XADError)tmpErr.code;
+			if (![tmpErr.domain isEqualToString:XADErrorDomain]) {
+				errorToThrow = XADErrorUnknown;
+			}
+			[XADException raiseExceptionWithXADError:errorToThrow underlyingError:tmpErr];
+		}
+	}*/
+}
 -(CSHandle *)handleForEntryWithDictionary:(NSDictionary *)dict wantChecksum:(BOOL)checksum { return nil; }
 -(NSString *)formatName { return @""; } // TODO: combine names for nested archives
 
