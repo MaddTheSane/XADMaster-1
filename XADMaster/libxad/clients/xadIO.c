@@ -138,7 +138,7 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io)
   return res;
 }
 
-XADIOFUNCMODE struct xadInOut *xadIOAlloc(xadUINT32 flags,
+XADIOFUNCMODE struct xadInOut *xadIOAlloc(xadIOFlag flags,
 struct xadArchiveInfo *ai, struct xadMasterBase *xadMasterBase)
 {
   xadUINT32 size = sizeof(struct xadInOut);
