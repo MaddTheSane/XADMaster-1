@@ -15,7 +15,7 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io);
 
 -(id)initWithHandle:(CSHandle *)handle length:(off_t)outlength
 {
-	if((self=[super initWithData:[NSMutableData dataWithCapacity:(long)outlength]]))
+	if((self=[super initWithData:[NSMutableData dataWithCapacity:(NSInteger)outlength]]))
 	{
 		[self setParentHandle:handle];
 		inlen=[handle fileSize];
@@ -24,8 +24,6 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io);
 	}
 	return self;
 }
-
-
 
 
 -(off_t)fileSize
@@ -107,7 +105,6 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io);
 
 
 
-
 -(void)runUnpacker
 {
 	unpacked=YES;
@@ -155,19 +152,19 @@ static xadUINT8 xadIOPutFunc(struct xadInOut *io, xadUINT8 data)
 {
 	if(!io->xio_Error)
 	{
-	if(!io->xio_OutSize && !(io->xio_Flags & xadIOFlagNoOutEndError))
-	{
-	  io->xio_Error = XADERR_DECRUNCH;
-	  io->xio_Flags |= xadIOFlagError;
-	}
-	else
-	{
-	  if(io->xio_OutBufferPos >= io->xio_OutBufferSize)
-		xadIOWriteBuf(io);
-	  io->xio_OutBuffer[io->xio_OutBufferPos++] = data;
-	  if(!--io->xio_OutSize)
-		io->xio_Flags |= xadIOFlagLastOutByte;
-	}
+		if(!io->xio_OutSize && !(io->xio_Flags & xadIOFlagNoOutEndError))
+		{
+			io->xio_Error = XADERR_DECRUNCH;
+			io->xio_Flags |= xadIOFlagError;
+		}
+		else
+		{
+			if(io->xio_OutBufferPos >= io->xio_OutBufferSize)
+				xadIOWriteBuf(io);
+			io->xio_OutBuffer[io->xio_OutBufferPos++] = data;
+			if(!--io->xio_OutSize)
+				io->xio_Flags |= xadIOFlagLastOutByte;
+		}
 	}
 	return data;
 }
