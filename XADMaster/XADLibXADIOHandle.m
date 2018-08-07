@@ -116,7 +116,7 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io);
 	if(err) [XADException raiseExceptionWithXADError:err];
 }
 
--(struct xadInOut *)ioStructWithFlags:(xadUINT32)flags
+-(struct xadInOut *)ioStructWithFlags:(xadIOFlag)flags
 {
 	memset(&iostruct,0,sizeof(iostruct));
 
@@ -124,12 +124,12 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io);
 	iostruct.xio_PutFunc=xadIOPutFunc;
 	iostruct.xio_GetFunc=xadIOGetFunc;
 
-	if(flags&XADIOF_ALLOCINBUFFER)
+	if(flags&xadIOFlagAllocInBuffer)
 	{
 		iostruct.xio_InBuffer=inbuf;
 		iostruct.xio_InBufferSize=iostruct.xio_InBufferPos=XIDBUFSIZE;
 	}
-	if(flags & XADIOF_ALLOCOUTBUFFER)
+	if(flags & xadIOFlagAllocOutBuffer)
 	{
 		iostruct.xio_OutBuffer=outbuf;
 		iostruct.xio_OutBufferSize=XIDBUFSIZE;
@@ -155,10 +155,10 @@ static xadUINT8 xadIOPutFunc(struct xadInOut *io, xadUINT8 data)
 {
 	if(!io->xio_Error)
 	{
-	if(!io->xio_OutSize && !(io->xio_Flags & XADIOF_NOOUTENDERR))
+	if(!io->xio_OutSize && !(io->xio_Flags & xadIOFlagNoOutEndError))
 	{
 	  io->xio_Error = XADERR_DECRUNCH;
-	  io->xio_Flags |= XADIOF_ERROR;
+	  io->xio_Flags |= xadIOFlagError;
 	}
 	else
 	{
@@ -166,7 +166,7 @@ static xadUINT8 xadIOPutFunc(struct xadInOut *io, xadUINT8 data)
 		xadIOWriteBuf(io);
 	  io->xio_OutBuffer[io->xio_OutBufferPos++] = data;
 	  if(!--io->xio_OutSize)
-		io->xio_Flags |= XADIOF_LASTOUTBYTE;
+		io->xio_Flags |= xadIOFlagLastOutByte;
 	}
 	}
 	return data;
@@ -180,10 +180,10 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io)
 	{
 		if(!io->xio_InSize)
 		{
-			if(!(io->xio_Flags & XADIOF_NOINENDERR))
+			if(!(io->xio_Flags & xadIOFlagNoInEndError))
 			{
 				io->xio_Error = XADERR_DECRUNCH;
-				io->xio_Flags |= XADIOF_ERROR;
+				io->xio_Flags |= xadIOFlagError;
 			}
 		}
 		else
@@ -199,11 +199,11 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io)
 					int actual=[io->inputhandle readAtMost:(int)i toBuffer:io->xio_InBuffer];
 					if(!actual)
 					{
-						io->xio_Flags|=XADIOF_ERROR;
+						io->xio_Flags|=xadIOFlagError;
 						io->xio_Error=XADERR_INPUT;
 					}
 				} @catch(id e) {
-					io->xio_Flags |= XADIOF_ERROR;
+					io->xio_Flags |= xadIOFlagError;
 					io->xio_Error=XADERR_DECRUNCH;
 				};
 
@@ -219,7 +219,7 @@ static xadUINT8 xadIOGetFunc(struct xadInOut *io)
 			--io->xio_InSize;
 		}
 		if(!io->xio_InSize)
-		io->xio_Flags |= XADIOF_LASTINBYTE;
+		io->xio_Flags |= xadIOFlagLastInByte;
 	}
 
 	return res;
@@ -311,14 +311,14 @@ xadERROR xadIOWriteBuf(struct xadInOut *io)
 	{
 		if(io->xio_OutFunc)
 		io->xio_OutFunc(io, (xadUINT32)io->xio_OutBufferPos);
-		if(!(io->xio_Flags & XADIOF_COMPLETEOUTFUNC))
+		if(!(io->xio_Flags & xadIOFlagCompleteOutFunc))
 		{
 			[io->outputdata appendBytes:io->xio_OutBuffer length:(long)io->xio_OutBufferPos];
-			if(!(io->xio_Flags & XADIOF_NOCRC16))
+			if(!(io->xio_Flags & xadIOFlagNoCRC16))
 			{
 //				&io->xio_CRC16,
 			}
-			if(!(io->xio_Flags & XADIOF_NOCRC32))
+			if(!(io->xio_Flags & xadIOFlagNoCRC32))
 			{
 				io->xio_CRC32=XADCalculateCRC(io->xio_CRC32,io->xio_OutBuffer,(int)io->xio_OutBufferPos,XADCRCTable_edb88320);
 //				&io->xio_CRC32,
